@@ -10,3 +10,17 @@ The camera follows Mario, always leaving him in the center of the screen except 
 If Mario is damaged, the player loses a life and the course restarts. However, Mario may get "power ups" through the course, which makes him stronger. If he is "powered up" when he gets touched by an enemy, instead of dying he returns to his small form and becomes immune to damage for 3 seconds. This immunity doesn't prevent him from dying falling to the bottom of the course, however.
 
 If the player loses all his lives, the game shows a "Game Over" screen and restarts.
+
+### Plot
+
+### Characters
+
+### Design
+
+### Art
+
+### Sound and Music
+
+### User Interface
+
+### Game Controls
