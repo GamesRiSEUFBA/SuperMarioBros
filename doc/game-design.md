@@ -15,6 +15,8 @@ If the player loses all his lives, the game shows a "Game Over" screen and resta
 
 ### Characters
 
+See [characters.md](characters.md)
+
 ### Design
 
 ### Art
