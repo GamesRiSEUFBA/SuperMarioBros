@@ -1,0 +1,1857 @@
+fileFormatVersion: 2
+guid: d337142d4b2541842b449b1fd0a737fb
+timeCreated: 1520118200
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Mario&Luigi_sprites2_0
+    21300002: Mario&Luigi_sprites2_1
+    21300004: Mario&Luigi_sprites2_2
+    21300006: Mario&Luigi_sprites2_3
+    21300008: Mario&Luigi_sprites2_4
+    21300010: Mario&Luigi_sprites2_5
+    21300012: Mario&Luigi_sprites2_6
+    21300014: Mario&Luigi_sprites2_7
+    21300016: Mario&Luigi_sprites2_8
+    21300018: Mario&Luigi_sprites2_9
+    21300020: Mario&Luigi_sprites2_10
+    21300022: Mario&Luigi_sprites2_11
+    21300024: Mario&Luigi_sprites2_12
+    21300026: Mario&Luigi_sprites2_13
+    21300028: Mario&Luigi_sprites2_14
+    21300030: Mario&Luigi_sprites2_15
+    21300032: Mario&Luigi_sprites2_16
+    21300034: Mario&Luigi_sprites2_17
+    21300036: Mario&Luigi_sprites2_18
+    21300038: Mario&Luigi_sprites2_19
+    21300040: Mario&Luigi_sprites2_20
+    21300042: Mario&Luigi_sprites2_21
+    21300044: Mario&Luigi_sprites2_22
+    21300046: Mario&Luigi_sprites2_23
+    21300048: Mario&Luigi_sprites2_24
+    21300050: Mario&Luigi_sprites2_25
+    21300052: Mario&Luigi_sprites2_26
+    21300054: Mario&Luigi_sprites2_27
+    21300056: Mario&Luigi_sprites2_28
+    21300058: Mario&Luigi_sprites2_29
+    21300060: Mario&Luigi_sprites2_30
+    21300062: Mario&Luigi_sprites2_31
+    21300064: Mario&Luigi_sprites2_32
+    21300066: Mario&Luigi_sprites2_33
+    21300068: Mario&Luigi_sprites2_34
+    21300070: Mario&Luigi_sprites2_35
+    21300072: Mario&Luigi_sprites2_36
+    21300074: Mario&Luigi_sprites2_37
+    21300076: Mario&Luigi_sprites2_38
+    21300078: Mario&Luigi_sprites2_39
+    21300080: Mario&Luigi_sprites2_40
+    21300082: Mario&Luigi_sprites2_41
+    21300084: Mario&Luigi_sprites2_42
+    21300086: Mario&Luigi_sprites2_43
+    21300088: Mario&Luigi_sprites2_44
+    21300090: Mario&Luigi_sprites2_45
+    21300092: Mario&Luigi_sprites2_46
+    21300094: Mario&Luigi_sprites2_47
+    21300096: Mario&Luigi_sprites2_48
+    21300098: Mario&Luigi_sprites2_49
+    21300100: Mario&Luigi_sprites2_50
+    21300102: Mario&Luigi_sprites2_51
+    21300104: Mario&Luigi_sprites2_52
+    21300106: Mario&Luigi_sprites2_53
+    21300108: Mario&Luigi_sprites2_54
+    21300110: Mario&Luigi_sprites2_55
+    21300112: Mario&Luigi_sprites2_56
+    21300114: Mario&Luigi_sprites2_57
+    21300116: Mario&Luigi_sprites2_58
+    21300118: Mario&Luigi_sprites2_59
+    21300120: Mario&Luigi_sprites2_60
+    21300122: Mario&Luigi_sprites2_61
+    21300124: Mario&Luigi_sprites2_62
+    21300126: Mario&Luigi_sprites2_63
+    21300128: Mario&Luigi_sprites2_64
+    21300130: Mario&Luigi_sprites2_65
+    21300132: Mario&Luigi_sprites2_66
+    21300134: Mario&Luigi_sprites2_67
+    21300136: Mario&Luigi_sprites2_68
+    21300138: Mario&Luigi_sprites2_69
+    21300140: Mario&Luigi_sprites2_70
+    21300142: Mario&Luigi_sprites2_71
+    21300144: Mario&Luigi_sprites2_72
+    21300146: Mario&Luigi_sprites2_73
+    21300148: Mario&Luigi_sprites2_74
+    21300150: Mario&Luigi_sprites2_75
+    21300152: Mario&Luigi_sprites2_76
+    21300154: Mario&Luigi_sprites2_77
+    21300156: Mario&Luigi_sprites2_78
+    21300158: Mario&Luigi_sprites2_79
+    21300160: Mario&Luigi_sprites2_80
+    21300162: Mario&Luigi_sprites2_81
+    21300164: Mario&Luigi_sprites2_82
+    21300166: Mario&Luigi_sprites2_83
+    21300168: Mario&Luigi_sprites2_84
+    21300170: Mario&Luigi_sprites2_85
+    21300172: Mario&Luigi_sprites2_86
+    21300174: Mario&Luigi_sprites2_87
+    21300176: Mario&Luigi_sprites2_88
+    21300178: Mario&Luigi_sprites2_89
+    21300180: Mario&Luigi_sprites2_90
+    21300182: Mario&Luigi_sprites2_91
+    21300184: Mario&Luigi_sprites2_92
+    21300186: Mario&Luigi_sprites2_93
+    21300188: Mario&Luigi_sprites2_94
+    21300190: Mario&Luigi_sprites2_95
+    21300192: Mario&Luigi_sprites2_96
+    21300194: Mario&Luigi_sprites2_97
+    21300196: Mario&Luigi_sprites2_98
+    21300198: Mario&Luigi_sprites2_99
+    21300200: Mario&Luigi_sprites2_100
+    21300202: Mario&Luigi_sprites2_101
+    21300204: Mario&Luigi_sprites2_102
+    21300206: Mario&Luigi_sprites2_103
+    21300208: Mario&Luigi_sprites2_104
+    21300210: Mario&Luigi_sprites2_105
+    21300212: Mario&Luigi_sprites2_106
+    21300214: Mario&Luigi_sprites2_107
+    21300216: Mario&Luigi_sprites2_108
+    21300218: Mario&Luigi_sprites2_109
+    21300220: Mario&Luigi_sprites2_110
+    21300222: Mario&Luigi_sprites2_111
+    21300224: Mario&Luigi_sprites2_112
+    21300226: Mario&Luigi_sprites2_113
+    21300228: Mario&Luigi_sprites2_114
+    21300230: Mario&Luigi_sprites2_115
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_0
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 275
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 275
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_2
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 275
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_3
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 275
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_4
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 275
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_5
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 275
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_6
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 275
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_7
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 275
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_8
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 275
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_9
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 275
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_10
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 275
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_11
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 275
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_12
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 275
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_13
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 239
+        width: 14
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_14
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 239
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_15
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 239
+        width: 16
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_16
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 239
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_17
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 239
+        width: 16
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_18
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 239
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_19
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 239
+        width: 14
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_20
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 239
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_21
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 239
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_22
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 239
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_23
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 239
+        width: 16
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_24
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 239
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_25
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 239
+        width: 18
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_26
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 239
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_27
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 239
+        width: 15
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_28
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 239
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_29
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 213
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_30
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 213
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_31
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 213
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_32
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 213
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_33
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 213
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_34
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 213
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_35
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 213
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_36
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 213
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_37
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 213
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_38
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 213
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_39
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 213
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_40
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 213
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_41
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 213
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_42
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 177
+        width: 14
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_43
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 177
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_44
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 177
+        width: 16
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_45
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 177
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_46
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 177
+        width: 16
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_47
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 177
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_48
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 177
+        width: 14
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_49
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 177
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_50
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 177
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_51
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 177
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_52
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 177
+        width: 16
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_53
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 177
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_54
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 177
+        width: 18
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_55
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 177
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_56
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 177
+        width: 15
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_57
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 177
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_58
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 149
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_59
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 149
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_60
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 149
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_61
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 149
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_62
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 149
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_63
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 149
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_64
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 149
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_65
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 149
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_66
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 149
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_67
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 149
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_68
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 149
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_69
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 149
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_70
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 149
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_71
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 112
+        width: 14
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_72
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 112
+        width: 16
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_73
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 112
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_74
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 112
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_75
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 112
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_76
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 112
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_77
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 112
+        width: 14
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_78
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 112
+        width: 14
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_79
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 112
+        width: 16
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_80
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 112
+        width: 16
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_81
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 112
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_82
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 112
+        width: 20
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_83
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 112
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_84
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 112
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_85
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 112
+        width: 15
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_86
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 112
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_87
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 87
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_88
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 87
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_89
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 87
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_90
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 87
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_91
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 87
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_92
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 87
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_93
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 87
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_94
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 87
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_95
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 87
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_96
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 87
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_97
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 87
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_98
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 87
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_99
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 87
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_100
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 50
+        width: 14
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_101
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 50
+        width: 16
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_102
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 50
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_103
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 50
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_104
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 50
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_105
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 50
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_106
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 50
+        width: 14
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_107
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 50
+        width: 14
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_108
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 50
+        width: 16
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_109
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 50
+        width: 16
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_110
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 50
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_111
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 50
+        width: 20
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_112
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 50
+        width: 19
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_113
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 50
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_114
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 50
+        width: 15
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Mario&Luigi_sprites2_115
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 50
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
