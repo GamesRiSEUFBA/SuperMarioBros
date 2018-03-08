@@ -1,0 +1,16 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Goomba.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Goomba.cs" Line="70" Column="131" />
+      <File FileName="Assets\Scripts\GamePhysics.cs" Line="10" Column="2" />
+      <File FileName="..\..\..\..\Universidade\UFBA\GAMES\Tuto\Assets\Scripts\Ball.cs" Line="111" Column="3" />
+      <File FileName="Assets\Scripts\SurpriseBlock.cs" Line="8" Column="3" />
+      <File FileName="Assets\Scripts\Mushroom.cs" Line="35" Column="131" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

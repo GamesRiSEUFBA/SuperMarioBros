@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/TestSceneCaio.unity
+- path: Assets/Scenes/TestSceneVictor.unity
   isLoaded: 1
   isActive: 1
