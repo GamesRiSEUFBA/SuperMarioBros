@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\MarioLuigi.cs" />
      <Compile Include="Assets\Scripts\Mushroom.cs" />
      <Compile Include="Assets\Scripts\SurpriseBlock.cs" />
+     <Compile Include="Assets\Scripts\Toad.cs" />
      <Compile Include="Assets\Scripts\ToadBag.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
