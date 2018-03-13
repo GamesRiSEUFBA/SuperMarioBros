@@ -106,6 +106,13 @@ public class MarioLuigi : MonoBehaviour {
 		}
 	}
 
+	void OnCollisionEnter2D(Collision2D coll) {
+		if (coll.gameObject.tag == "axe") {
+			Animator anim;
+			anim.
+		}
+	}
+
 	void OnCollisionStay2D(Collision2D coll) {
 		if (coll.gameObject.tag == "block1" || coll.gameObject.tag == "pipe" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "floor") {
 			onFloor = true;

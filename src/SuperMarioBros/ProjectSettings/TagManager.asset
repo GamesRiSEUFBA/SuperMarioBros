@@ -15,6 +15,7 @@ TagManager:
   - block2
   - blocksurp
   - lava
+  - axe
   layers:
   - Default
   - TransparentFX
