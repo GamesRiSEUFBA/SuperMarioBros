@@ -8,7 +8,7 @@ public class MarioLuigi : MonoBehaviour {
 	private BoxCollider2D box;
 	private Animator anim;
 	private SpriteRenderer sprite;
-	private bool rightKeyPressed = false, leftKeyPressed = false, jumpPressed = false, firePressed = false, turnTime = false, onFloor = false;
+	private bool rightKeyPressed = false, leftKeyPressed = false, jumpPressed = false, firePressed = false, turnTime = false, onFloor = false, onAxe = false;
 	private float maxVel = 6;
 
 	void Start () {
@@ -29,7 +29,15 @@ public class MarioLuigi : MonoBehaviour {
 		if (Input.GetKeyUp (KeyCode.C)) {
 			jumpPressed = false;
 		}
-			
+
+		if (Input.GetKeyUp (KeyCode.LeftArrow)) {
+			leftKeyPressed = false;
+			anim.SetBool ("Turn", false);
+		} else if (Input.GetKeyUp (KeyCode.RightArrow)) {
+			rightKeyPressed = false;
+			anim.SetBool ("Turn", false);
+		}
+
 		if (Input.GetKeyDown (KeyCode.LeftArrow)) {
 			leftKeyPressed = true;
 			if (Mathf.Abs(rb.velocity.x) > 4) {
@@ -44,14 +52,6 @@ public class MarioLuigi : MonoBehaviour {
 				anim.SetBool ("Turn", true);
 				rb.AddForce (new Vector2 (-1.2f, 0), ForceMode2D.Impulse);
 			}
-		}
-
-		if (Input.GetKeyUp (KeyCode.LeftArrow)) {
-			leftKeyPressed = false;
-			anim.SetBool ("Turn", false);
-		} else if (Input.GetKeyUp (KeyCode.RightArrow)) {
-			rightKeyPressed = false;
-			anim.SetBool ("Turn", false);
 		}
 
 		if (!onFloor) {
@@ -104,12 +104,24 @@ public class MarioLuigi : MonoBehaviour {
 			if (rb.velocity.x != 0)
 				rb.AddForce(new Vector2((rb.velocity.x/Mathf.Abs(rb.velocity.x))*(-15), 0), ForceMode2D.Force);
 		}
+
+		if (onAxe) {
+			uint count = 0;
+			for (int i = 1; i <= 13 && count < 1000; count++) {				
+				Animator anim = GameObject.Find("BridgeCastle" + i).GetComponent<Animator> ();
+				anim.SetBool ("BridgeFall", true);
+				GameObject.Find ("BridgeCastle" + i).GetComponent<BoxCollider2D> ().size = new Vector2 (0, 0);
+				if (anim.GetCurrentAnimatorStateInfo (0).normalizedTime > 0.1 && anim.GetCurrentAnimatorStateInfo (0).IsName("BridgeFall") && !anim.IsInTransition(0)) {
+					i++;
+				}
+			}
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.gameObject.tag == "axe") {
-			Animator anim;
-			anim.
+			onAxe = true;
+			Destroy (coll.gameObject);
 		}
 	}
 
