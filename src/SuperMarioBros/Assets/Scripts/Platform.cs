@@ -5,7 +5,6 @@ using UnityEngine;
 public class Platform : MonoBehaviour {
 
 	private Rigidbody2D rb;
-	private float countX = 0, countY = 0;
 	private int velX = 0, velY = 0;
 	private Vector2 pos;
 

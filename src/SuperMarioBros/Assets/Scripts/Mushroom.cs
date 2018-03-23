@@ -20,7 +20,7 @@ public class Mushroom : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (rb.position.y >= initPos + 0.95 && !arising) {
+		if (rb.position.y >= initPos + 1.05 && !arising) {
 			velX = 2;
 			velY = 0;
 			rb.velocity = new Vector2 (2, 0);
@@ -32,11 +32,15 @@ public class Mushroom : MonoBehaviour {
 	}
 
 	void OnCollisionStay2D(Collision2D coll) {
+		Vector2 collPos = coll.gameObject.transform.position;
+		Vector2 rbPos = rb.position;
 		if (coll.gameObject.tag == "block1" || coll.gameObject.tag == "pipe" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp") {
-			if (coll.gameObject.transform.position.x > rb.position.x)
-				velX = -Mathf.Abs(velX);
-			else
-				velX = Mathf.Abs(velX);
+			if (rbPos.y < collPos.y + 0.5 && rbPos.y > collPos.y - 0.5) {
+				if (collPos.x > rb.position.x)
+					velX = -Mathf.Abs(velX);
+				else
+					velX = Mathf.Abs(velX);
+			}
 		} else if (coll.gameObject.tag != "floor") {
 			Physics2D.IgnoreCollision (coll.collider, coll.otherCollider);
 		}

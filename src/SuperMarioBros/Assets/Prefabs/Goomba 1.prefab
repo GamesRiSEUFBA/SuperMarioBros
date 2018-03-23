@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114314530756789512}
   m_Layer: 0
   m_Name: Goomba 1
-  m_TagString: collider
+  m_TagString: goomba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,7 +88,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.15, y: 0.15}
   m_EdgeRadius: 0
 --- !u!95 &95130752732853556
 Animator:

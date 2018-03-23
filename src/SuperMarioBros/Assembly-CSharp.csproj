@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\Goomba.cs" />
      <Compile Include="Assets\Scripts\MarioLuigi.cs" />
      <Compile Include="Assets\Scripts\Mushroom.cs" />
+     <Compile Include="Assets\Scripts\Plant.cs" />
      <Compile Include="Assets\Scripts\Platform.cs" />
      <Compile Include="Assets\Scripts\SurpriseBlock.cs" />
      <Compile Include="Assets\Scripts\Toad.cs" />

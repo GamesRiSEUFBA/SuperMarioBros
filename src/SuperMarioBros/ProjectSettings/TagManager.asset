@@ -16,6 +16,9 @@ TagManager:
   - blocksurp
   - lava
   - axe
+  - coin
+  - player
+  - plant
   layers:
   - Default
   - TransparentFX

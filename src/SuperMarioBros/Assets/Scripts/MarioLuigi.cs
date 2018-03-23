@@ -11,18 +11,30 @@ public class MarioLuigi : MonoBehaviour {
 	private bool rightKeyPressed = false, leftKeyPressed = false, jumpPressed = false, firePressed = false, turnTime = false, onFloor = false, onAxe = false;
 	private float maxVel = 6;
 
+	private Vector2 oldCamPos;
+
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		box = GetComponent<BoxCollider2D> ();
 		anim = GetComponent<Animator> ();
 		sprite = GetComponent<SpriteRenderer> ();
+
+		oldCamPos = Camera.main.transform.position;
 	}
 
 	void Update () {
+		if (box.size.Equals(new Vector2(0,0)))
+			goto End;
+		
+		if (oldCamPos.x < rb.transform.position.x) {
+			Camera.main.transform.position = new Vector3 (rb.transform.position.x, Camera.main.transform.position.y, -10);
+			oldCamPos = Camera.main.transform.position;
+		}
+
 		if (Input.GetKeyDown (KeyCode.C)) {
 			if (rb.velocity.y == 0 && !jumpPressed) {
 				jumpPressed = true;
-				rb.AddForce (new Vector2 (0, 10), ForceMode2D.Impulse);
+				rb.AddForce (new Vector2 (0, 14), ForceMode2D.Impulse);
 			}
 		}
 
@@ -116,16 +128,48 @@ public class MarioLuigi : MonoBehaviour {
 				}
 			}
 		}
+
+		End:;
+	}
+
+	void OnBecameInvisible() {
+		if (box.size.Equals(new Vector2(0,0))) {
+			Destroy (this.gameObject);
+			print ("Restart Game");
+		}
+	}
+
+	void Die() {
+		anim.SetBool ("Dead", true);
+		rb.AddForce (new Vector2 (0, 10), ForceMode2D.Impulse);
+		box.size = new Vector2 (0, 0);
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) {
+		Vector2 collPos = coll.gameObject.transform.position;
+		Vector2 rbPos = rb.position;
+
 		if (coll.gameObject.tag == "axe") {
 			onAxe = true;
 			Destroy (coll.gameObject);
 		}
+
+		if (coll.gameObject.tag == "goomba") {
+			if (rbPos.y >= collPos.y + 0.5) {
+				rb.AddForce (new Vector2 (0, 14), ForceMode2D.Impulse);
+				coll.gameObject.GetComponent<Goomba> ().Pisoteado ();
+			} else {
+				Die ();
+			}
+		}
+
+		if (coll.gameObject.tag == "plant" || coll.gameObject.tag == "lava") {
+			Die ();
+		}
 	}
 
 	void OnCollisionStay2D(Collision2D coll) {
+
 		if (coll.gameObject.tag == "block1" || coll.gameObject.tag == "pipe" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "floor") {
 			onFloor = true;
 		} else {

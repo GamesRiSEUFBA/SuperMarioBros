@@ -28,9 +28,9 @@ public class Goomba : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Input.GetMouseButtonDown(0)) {
-			Fall ();
-		}
+		//if (Input.GetMouseButtonDown(0)) {
+		//	Fall ();
+		//}
 		if (animGoomba.GetCurrentAnimatorStateInfo (0).normalizedTime > 1 &&
 			animGoomba.GetCurrentAnimatorStateInfo (0).IsName("GoombaDead") 
 			&& !animGoomba.IsInTransition (0) && pisoteado) {
@@ -53,11 +53,11 @@ public class Goomba : MonoBehaviour {
 		boxGoomba.size = new Vector2 (0, 0);
 	}
 
-	void Pisoteado() {
+	public void Pisoteado() {
 		pisoteado = (pisoteado == false) ? true : false;
 		animGoomba.SetBool ("GoombaDead", pisoteado);
 		rigidGoomba.bodyType = RigidbodyType2D.Static;
-		boxGoomba.size = new Vector2 (boxGoomba.size.x, boxGoomba.size.y / 2);
+		boxGoomba.size = new Vector2 (0, 0);
 	}
 
 	void OnBecameInvisible() {
@@ -67,12 +67,16 @@ public class Goomba : MonoBehaviour {
 	}
 
 	void OnCollisionStay2D(Collision2D coll) {
+		Vector2 collPos = coll.gameObject.transform.position;
+		Vector2 rbPos = rigidGoomba.position;
 		if (coll.gameObject.tag == "block1" || coll.gameObject.tag == "pipe" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "goomba") {
-			if (coll.gameObject.transform.position.x > transGoomba.position.x)
-				velX = -Mathf.Abs (velX);
-			else
-				velX = Mathf.Abs (velX);
-		} else if (coll.gameObject.tag != "floor") {
+			if (rbPos.y < collPos.y + 0.5 && rbPos.y > collPos.y - 0.5) {
+				if (coll.gameObject.transform.position.x > transGoomba.position.x)
+					velX = -Mathf.Abs (velX);
+				else
+					velX = Mathf.Abs (velX);
+			}
+		} else if (coll.gameObject.tag != "floor" && coll.gameObject.tag != "player") {
 			Physics2D.IgnoreCollision (coll.collider, coll.otherCollider);
 		}
 	}
