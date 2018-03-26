@@ -18,7 +18,7 @@ public class Plant : MonoBehaviour {
 	}
 
 	void Update () {
-		if (rb.transform.position.y >= initPos.y + 2 && rb.velocity.y > 0) {
+		if (rb.transform.position.y >= initPos.y + 1.9 && rb.velocity.y > 0) {
 			rb.velocity = new Vector2 (0, 0);
 			count = 1;
 		} else if (rb.transform.position.y <= initPos.y && rb.velocity.y < 0) {

@@ -5,6 +5,7 @@ using UnityEngine;
 public class GamePhysics : MonoBehaviour {
 
 	private Rigidbody2D rb;
+	private bool onFloor = false;
 
 	private float gravity = 25;
 
