@@ -8,8 +8,8 @@ public class MarioLuigi : MonoBehaviour {
 	private BoxCollider2D box;
 	private Animator anim;
 	private SpriteRenderer sprite;
-	private bool rightKeyPressed = false, leftKeyPressed = false, jumpPressed = false, firePressed = false;
-	private bool dead = false, turnTime = false, onFloor = false, onAxe = false;
+	private bool rightKeyPressed = false, leftKeyPressed = false, jumpPressed = false, firePressed = false, turnTime = false, onFloor = false, onAxe = false;
+	public bool dead = false;
 	private float maxVel = 6;
 
 	private Vector2 oldCamPos;
@@ -19,52 +19,6 @@ public class MarioLuigi : MonoBehaviour {
 		box = GetComponent<BoxCollider2D> ();
 		anim = GetComponent<Animator> ();
 		sprite = GetComponent<SpriteRenderer> ();
-	}
-
-	void Update () {
-		if (!dead) {
-			updateMaxSpeed ();
-			checkAxe ();
-			checkInputs ();
-
-			if (jumpPressed) {
-				anim.SetBool ("Jump", true);
-				if (Mathf.Abs (rb.velocity.y) < 5 && rb.velocity.y > 0)
-					rb.AddForce (new Vector2 (0, 10), ForceMode2D.Impulse);
-				if (onFloor)
-					jumpPressed = false;
-			} else {
-				if (rb.velocity.y == 0 && onFloor) {
-					anim.SetBool ("Jump", false);
-				}
-			}
-
-			if (leftKeyPressed) {
-				anim.SetBool ("Walking", true);
-				if (onFloor)
-					sprite.flipX = true;
-				if (rb.velocity.x == 0)
-					turnTime = false;
-				if (rb.velocity.x > 0 && !turnTime)
-					rb.velocity = new Vector2 (-rb.velocity.x, rb.velocity.y);
-				if (Mathf.Abs (rb.velocity.x) < maxVel)
-					rb.AddForce (new Vector2 (-16, 0), ForceMode2D.Force);
-			} else if (rightKeyPressed) {
-				anim.SetBool ("Walking", true);
-				if (onFloor)
-					sprite.flipX = false;
-				if (rb.velocity.x == 0)
-					turnTime = false;
-				if (rb.velocity.x < 0 && !turnTime)
-					rb.velocity = new Vector2 (-rb.velocity.x, rb.velocity.y);
-				if (Mathf.Abs (rb.velocity.x) < maxVel)
-					rb.AddForce (new Vector2 (16, 0), ForceMode2D.Force);
-			} else {
-				anim.SetBool ("Walking", false);
-				if (rb.velocity.x != 0)
-					rb.AddForce (new Vector2 ((rb.velocity.x / Mathf.Abs (rb.velocity.x)) * (-15), 0), ForceMode2D.Force);
-			}
-		}
 	}
 
 	void checkInputs() { 
@@ -105,7 +59,7 @@ public class MarioLuigi : MonoBehaviour {
 	}
 
 	void updateMaxSpeed() {
-		maxVel = (onFloor) ? 6 : 4;
+		maxVel = (onFloor) ? 6 : 5;
 
 		if (Mathf.Abs (rb.velocity.x) > maxVel) {
 			rb.velocity = (rb.velocity.x < 0) ? new Vector2 (-maxVel, rb.velocity.y) : rb.velocity = new Vector2 (maxVel, rb.velocity.y);
@@ -126,21 +80,68 @@ public class MarioLuigi : MonoBehaviour {
 		}
 	}
 
+	void Update () {
+		if (!dead) {
+			updateMaxSpeed ();
+			checkAxe ();
+			checkInputs ();
+
+			if (jumpPressed) {
+				anim.SetBool ("Jump", true);
+				if (onFloor)
+					jumpPressed = false;
+			} else {
+				if (rb.velocity.y == 0 && onFloor) {
+					anim.SetBool ("Jump", false);
+				}
+			}
+
+			if (leftKeyPressed) {
+				anim.SetBool ("Walking", true);
+				if (onFloor)
+					sprite.flipX = true;
+				if (rb.velocity.x == 0)
+					turnTime = false;
+				if (rb.velocity.x > 0 && !turnTime)
+					rb.velocity = new Vector2 (-rb.velocity.x, rb.velocity.y);
+				if (Mathf.Abs (rb.velocity.x) < maxVel)
+					rb.AddForce (new Vector2 (-16, 0), ForceMode2D.Force);
+			} else if (rightKeyPressed) {
+				anim.SetBool ("Walking", true);
+				if (onFloor)
+					sprite.flipX = false;
+				if (rb.velocity.x == 0)
+					turnTime = false;
+				if (rb.velocity.x < 0 && !turnTime)
+					rb.velocity = new Vector2 (-rb.velocity.x, rb.velocity.y);
+				if (Mathf.Abs (rb.velocity.x) < maxVel)
+					rb.AddForce (new Vector2 (16, 0), ForceMode2D.Force);
+			} else {
+				anim.SetBool ("Walking", false);
+				if (rb.velocity.x != 0)
+					rb.AddForce (new Vector2 ((rb.velocity.x / Mathf.Abs (rb.velocity.x)) * (-15), 0), ForceMode2D.Force);
+			}
+		}
+	}
+
 	void KillMario() {
-		anim.SetBool ("Dead", true);
-		rb.AddForce (new Vector2 (0, 10), ForceMode2D.Impulse);
-		box.size = new Vector2 (0, 0);
 		dead = true;
+		anim.SetBool ("Dead", true);
+		box.size = new Vector2 (0, 0);
+		rb.AddForce (new Vector2 (0, 20), ForceMode2D.Impulse);
 	}
 
 	void OnBecameInvisible() {
-		if (dead) {
+		if (dead && rb.transform.position.y <= Camera.main.transform.position.y) {
 			Destroy (this.gameObject);
 			print ("Restart Game");
 		}
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) {
+		if (dead)
+			return;
+		
 		Vector2 collPos = coll.gameObject.transform.position;
 		Vector2 rbPos = rb.position;
 
@@ -168,6 +169,9 @@ public class MarioLuigi : MonoBehaviour {
 	}
 
 	void OnCollisionStay2D(Collision2D coll) {
+		if (dead)
+			return;
+		
 		if (coll.gameObject.tag == "block1" || coll.gameObject.tag == "pipe" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "floor") {
 			onFloor = true;
 		} else {
@@ -176,6 +180,9 @@ public class MarioLuigi : MonoBehaviour {
 	}
 
 	void OnCollisionExit2D(Collision2D coll) {
+		if (dead)
+			return;
+		
 		if (coll.gameObject.tag == "block1" || coll.gameObject.tag == "pipe" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "floor") {
 			onFloor = false;
 		}

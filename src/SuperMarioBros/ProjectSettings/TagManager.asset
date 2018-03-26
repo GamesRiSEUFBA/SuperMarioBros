@@ -19,6 +19,7 @@ TagManager:
   - coin
   - player
   - plant
+  - pipein
   layers:
   - Default
   - TransparentFX

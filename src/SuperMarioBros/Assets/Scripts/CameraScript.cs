@@ -6,18 +6,18 @@ public class CameraScript : MonoBehaviour {
 
 	private Vector2 oldCamPos;
 	private Rigidbody2D rbMario;
+	private MarioLuigi csMario;
 
 	void Start () {
 		rbMario = GameObject.Find ("Player").GetComponent<Rigidbody2D> ();
+		csMario = GameObject.Find ("Player").GetComponent<MarioLuigi> ();
 		oldCamPos = Camera.main.transform.position;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-		if (oldCamPos.x < rbMario.transform.position.x) {
+		if (!csMario.dead && oldCamPos.x < rbMario.transform.position.x) {
 			Camera.main.transform.position = new Vector3 (rbMario.transform.position.x, Camera.main.transform.position.y, -10);
 			oldCamPos = Camera.main.transform.position;
 		}
-		
 	}
 }

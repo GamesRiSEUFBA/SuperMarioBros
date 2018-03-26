@@ -4,24 +4,18 @@ using UnityEngine;
 
 public class Fire : MonoBehaviour {
 
-	private Rigidbody2D rb;
+	private Transform rb;
 
 	public bool left = true;
 
 	void Start () {
-		rb = GetComponent<Rigidbody2D> ();	
+		rb = GetComponent<Transform> ();	
 	}
 
 	void Update () {
 		if (left)
-			rb.rotation += 1.3f;	
+			rb.Rotate(0, 0, 1.3f);	
 		else
-			rb.rotation += -1.3f;	
-
-		if (rb.rotation == 360)
-			rb.rotation = 0;
-
-		if (rb.rotation == -360)
-			rb.rotation = 0;
+			rb.Rotate(0, 0, -1.3f);	
 	}
 }
