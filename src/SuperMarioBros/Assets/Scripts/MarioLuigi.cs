@@ -8,7 +8,7 @@ public class MarioLuigi : MonoBehaviour {
 	private BoxCollider2D box;
 	private Animator anim;
 	private SpriteRenderer sprite;
-	private bool rightKeyPressed = false, leftKeyPressed = false, jumpPressed = false, firePressed = false, turnTime = false, onFloor = false, onAxe = false;
+	private bool rightKeyPressed = false, leftKeyPressed = false, jumpPressed = false, firePressed = false, turnTime = false, onFloor = false, onAxe = false, dead = false;
 	private float maxVel = 6;
 
 	private Vector2 oldCamPos;
@@ -78,57 +78,63 @@ public class MarioLuigi : MonoBehaviour {
 			else
 				rb.velocity = new Vector2 (maxVel, rb.velocity.y);
 		}
-
-		if (jumpPressed) {
-			anim.SetBool ("Jump", true);
-			if (Mathf.Abs(rb.velocity.y) < 5 && rb.velocity.y > 0)
-				rb.AddForce (new Vector2 (0, 10), ForceMode2D.Impulse);
-			if (onFloor)
-				jumpPressed = false;
-		} else {
-			if (rb.velocity.y == 0 && onFloor) {
-				anim.SetBool ("Jump", false);
+		if (dead == false) {
+			
+			if (jumpPressed) {
+				anim.SetBool ("Jump", true);
+				if (Mathf.Abs (rb.velocity.y) < 5 && rb.velocity.y > 0)
+					rb.AddForce (new Vector2 (0, 10), ForceMode2D.Impulse);
+				if (onFloor)
+					jumpPressed = false;
+			} else {
+				if (rb.velocity.y == 0 && onFloor) {
+					anim.SetBool ("Jump", false);
+				}
 			}
-		}
 
-		if (leftKeyPressed) {
-			anim.SetBool ("Walking", true);
-			if (onFloor)
-				sprite.flipX = true;
-			if (rb.velocity.x == 0)
-				turnTime = false;
-			if (rb.velocity.x > 0 && !turnTime)
-				rb.velocity = new Vector2 (-rb.velocity.x, rb.velocity.y);
-			if (Mathf.Abs(rb.velocity.x) < maxVel)
-				rb.AddForce(new Vector2(-16, 0), ForceMode2D.Force);
-		} else if (rightKeyPressed) {
-			anim.SetBool ("Walking", true);
-			if (onFloor)
-				sprite.flipX = false;
-			if (rb.velocity.x == 0)
-				turnTime = false;
-			if (rb.velocity.x < 0 && !turnTime)
-				rb.velocity = new Vector2 (-rb.velocity.x, rb.velocity.y);
-			if (Mathf.Abs(rb.velocity.x) < maxVel)
-				rb.AddForce(new Vector2(16, 0), ForceMode2D.Force);
-		} else {
-			anim.SetBool ("Walking", false);
-			if (rb.velocity.x != 0)
-				rb.AddForce(new Vector2((rb.velocity.x/Mathf.Abs(rb.velocity.x))*(-15), 0), ForceMode2D.Force);
-		}
+			if (leftKeyPressed) {
+				anim.SetBool ("Walking", true);
+				if (onFloor)
+					sprite.flipX = true;
+				if (rb.velocity.x == 0)
+					turnTime = false;
+				if (rb.velocity.x > 0 && !turnTime)
+					rb.velocity = new Vector2 (-rb.velocity.x, rb.velocity.y);
+				if (Mathf.Abs (rb.velocity.x) < maxVel)
+					rb.AddForce (new Vector2 (-16, 0), ForceMode2D.Force);
+			} else if (rightKeyPressed) {
+				anim.SetBool ("Walking", true);
+				if (onFloor)
+					sprite.flipX = false;
+				if (rb.velocity.x == 0)
+					turnTime = false;
+				if (rb.velocity.x < 0 && !turnTime)
+					rb.velocity = new Vector2 (-rb.velocity.x, rb.velocity.y);
+				if (Mathf.Abs (rb.velocity.x) < maxVel)
+					rb.AddForce (new Vector2 (16, 0), ForceMode2D.Force);
+			} else {
+				anim.SetBool ("Walking", false);
+				if (rb.velocity.x != 0)
+					rb.AddForce (new Vector2 ((rb.velocity.x / Mathf.Abs (rb.velocity.x)) * (-15), 0), ForceMode2D.Force);
+				if (rb.velocity.x < 0.25 || rb.velocity.x > -0.25) {
+					Vector3 v = rb.velocity;
+					v.x = 0.0f;
+					rb.velocity = v;
+				}
+			}
 
-		if (onAxe) {
-			uint count = 0;
-			for (int i = 1; i <= 13 && count < 1000; count++) {				
-				Animator anim = GameObject.Find("BridgeCastle" + i).GetComponent<Animator> ();
-				anim.SetBool ("BridgeFall", true);
-				GameObject.Find ("BridgeCastle" + i).GetComponent<BoxCollider2D> ().size = new Vector2 (0, 0);
-				if (anim.GetCurrentAnimatorStateInfo (0).normalizedTime > 0.1 && anim.GetCurrentAnimatorStateInfo (0).IsName("BridgeFall") && !anim.IsInTransition(0)) {
-					i++;
+			if (onAxe) {
+				uint count = 0;
+				for (int i = 1; i <= 13 && count < 1000; count++) {				
+					Animator anim = GameObject.Find ("BridgeCastle" + i).GetComponent<Animator> ();
+					anim.SetBool ("BridgeFall", true);
+					GameObject.Find ("BridgeCastle" + i).GetComponent<BoxCollider2D> ().size = new Vector2 (0, 0);
+					if (anim.GetCurrentAnimatorStateInfo (0).normalizedTime > 0.1 && anim.GetCurrentAnimatorStateInfo (0).IsName ("BridgeFall") && !anim.IsInTransition (0)) {
+						i++;
+					}
 				}
 			}
 		}
-
 		End:;
 	}
 
@@ -143,6 +149,7 @@ public class MarioLuigi : MonoBehaviour {
 		anim.SetBool ("Dead", true);
 		rb.AddForce (new Vector2 (0, 10), ForceMode2D.Impulse);
 		box.size = new Vector2 (0, 0);
+		dead = true;
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) {
@@ -157,7 +164,7 @@ public class MarioLuigi : MonoBehaviour {
 		if (coll.gameObject.tag == "goomba") {
 			if (rbPos.y >= collPos.y + 0.5) {
 				rb.AddForce (new Vector2 (0, 14), ForceMode2D.Impulse);
-				coll.gameObject.GetComponent<Goomba> ().Pisoteado ();
+				coll.gameObject.GetComponent<Goomba> ().Stomped ();
 			} else {
 				Die ();
 			}
@@ -172,6 +179,9 @@ public class MarioLuigi : MonoBehaviour {
 
 		if (coll.gameObject.tag == "block1" || coll.gameObject.tag == "pipe" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "floor") {
 			onFloor = true;
+			Vector3 v = rb.velocity;
+			v.y = 0.0f;
+			rb.velocity = v;
 		} else {
 			onFloor = false;
 		}

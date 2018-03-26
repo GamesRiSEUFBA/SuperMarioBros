@@ -10,7 +10,7 @@ public class Goomba : MonoBehaviour {
 	private BoxCollider2D boxGoomba;
 	//private SpriteRenderer spriteGoomba;
 
-	private bool pisoteado = false;
+	private bool stomped = false;
 	private bool fall = false;
 
 	private float velX = 3;
@@ -33,7 +33,7 @@ public class Goomba : MonoBehaviour {
 		//}
 		if (animGoomba.GetCurrentAnimatorStateInfo (0).normalizedTime > 1 &&
 			animGoomba.GetCurrentAnimatorStateInfo (0).IsName("GoombaDead") 
-			&& !animGoomba.IsInTransition (0) && pisoteado) {
+			&& !animGoomba.IsInTransition (0) && stomped) {
 				
 			Destroy (this.gameObject);
 		}
@@ -53,9 +53,9 @@ public class Goomba : MonoBehaviour {
 		boxGoomba.size = new Vector2 (0, 0);
 	}
 
-	public void Pisoteado() {
-		pisoteado = (pisoteado == false) ? true : false;
-		animGoomba.SetBool ("GoombaDead", pisoteado);
+	public void Stomped() {
+		stomped = (stomped == false) ? true : false;
+		animGoomba.SetBool ("GoombaDead", stomped);
 		rigidGoomba.bodyType = RigidbodyType2D.Static;
 		boxGoomba.size = new Vector2 (0, 0);
 	}
