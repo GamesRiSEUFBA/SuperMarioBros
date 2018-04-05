@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SurpriseBlock : MonoBehaviour {
+public class BrickBlock : MonoBehaviour {
 
 	public GameObject obj;
 	public int qnt = 1;
-	public bool invisible = false;
+	public bool willBreak = true;
 
 	private Transform trans;
 	private Rigidbody2D rb;
@@ -22,23 +22,32 @@ public class SurpriseBlock : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 
 		initPos = trans.position;
-
-		if (invisible) {
-			anim.SetBool ("Invisible", true);
-		}
 	}
 
 	void Open() {
-		Instantiate (obj, initPos, trans.localRotation);
-		count++;
-		if (count == qnt) {
-			Lock();
+		if (obj != null) {
+			Instantiate (obj, initPos, trans.localRotation);
+			count++;
+			if (count == qnt) {
+				if (willBreak)
+					Break();
+				else
+					Lock();
+			}
+
+			return;
 		}
+
+		Break();
 	}
 
 	void Lock() {
 		anim.SetBool ("Locked", true);
 		locked = true;
+	}
+
+	void Break() {
+		Destroy (this.gameObject);
 	}
 
 	void Update () {
@@ -57,9 +66,6 @@ public class SurpriseBlock : MonoBehaviour {
 
 		if (!locked && coll.gameObject.tag == "player") {
 			if (transPos.y - 0.5 >= collPos.y) {
-				if (invisible) {
-					anim.SetBool ("Invisible", false);
-				}
 				rb.velocity = new Vector2 (0, 6);
 			}
 		}

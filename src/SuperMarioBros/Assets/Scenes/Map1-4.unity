@@ -4623,21 +4623,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 50739402469230960, guid: a075146a111725844a2cad1c1a94cb6d,
-        type: 2}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 50739402469230960, guid: a075146a111725844a2cad1c1a94cb6d,
-        type: 2}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 61101281997829486, guid: a075146a111725844a2cad1c1a94cb6d,
-        type: 2}
-      propertyPath: m_Offset.y
-      value: 0.075
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a075146a111725844a2cad1c1a94cb6d, type: 2}
   m_IsPrefabParent: 0
