@@ -269,6 +269,51 @@ public class MarioLuigi : MonoBehaviour {
 			}
 		}
 
+		if (coll.gameObject.tag == "KoopaTroopa")
+		{
+			var other_koopa = coll.gameObject.GetComponent<KoopaTroopaGreen> ();
+			if (rbPos.y >= collPos.y + 0.5)
+			{
+				rb.AddForce (new Vector2 (0, 14), ForceMode2D.Impulse);
+
+				if (other_koopa.current_state == KoopaTroopaGreen.KoopaState.NORMAL || other_koopa.current_state == KoopaTroopaGreen.KoopaState.SHELL_SLIDING)
+				{
+					other_koopa.switch_state (KoopaTroopaGreen.KoopaState.SHELL_STANDBY);
+				}
+				else
+				{
+					if (dir_right == true)
+					{
+						other_koopa.velX = 9;
+					}
+					else
+					{
+						other_koopa.velX = -9;
+					}
+					other_koopa.switch_state (KoopaTroopaGreen.KoopaState.SHELL_SLIDING);
+				}
+			}
+			else
+			{
+				if (other_koopa.current_state == KoopaTroopaGreen.KoopaState.NORMAL || other_koopa.current_state == KoopaTroopaGreen.KoopaState.SHELL_SLIDING)
+				{
+					KillMario ();
+				}
+				else
+				{
+					if (dir_right == true)
+					{
+						other_koopa.velX = 9;
+					}
+					else
+					{
+						other_koopa.velX = -9;
+					}
+					other_koopa.switch_state (KoopaTroopaGreen.KoopaState.SHELL_SLIDING);
+				}
+			}
+		}
+
 		if (coll.gameObject.tag == "plant" || coll.gameObject.tag == "lava") {
 			KillMario ();
 		}
