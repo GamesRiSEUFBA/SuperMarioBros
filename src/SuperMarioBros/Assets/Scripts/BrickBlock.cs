@@ -5,6 +5,7 @@ using UnityEngine;
 public class BrickBlock : MonoBehaviour {
 
 	public GameObject obj;
+	public GameObject particle;
 	public int qnt = 1;
 	public bool willBreak = true;
 
@@ -30,15 +31,12 @@ public class BrickBlock : MonoBehaviour {
 			count++;
 			if (count == qnt) {
 				if (willBreak)
-					Break();
+					Break ();
 				else
-					Lock();
+					Lock ();
 			}
-
-			return;
-		}
-
-		Break();
+		} else
+			Break();
 	}
 
 	void Lock() {
@@ -47,6 +45,7 @@ public class BrickBlock : MonoBehaviour {
 	}
 
 	void Break() {
+		Instantiate (particle, initPos, trans.localRotation);
 		Destroy (this.gameObject);
 	}
 

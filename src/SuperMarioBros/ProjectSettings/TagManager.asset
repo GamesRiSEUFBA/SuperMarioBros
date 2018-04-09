@@ -20,6 +20,7 @@ TagManager:
   - player
   - plant
   - pipein
+  - KoopaTroopa
   layers:
   - Default
   - TransparentFX
