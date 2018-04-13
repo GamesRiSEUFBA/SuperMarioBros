@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\Fire.cs" />
      <Compile Include="Assets\Scripts\FireUpgrade.cs" />
      <Compile Include="Assets\Scripts\GamePhysics.cs" />
+     <Compile Include="Assets\Scripts\GetCoin.cs" />
      <Compile Include="Assets\Scripts\Goomba.cs" />
      <Compile Include="Assets\Scripts\KoopaTroopaGreen.cs" />
      <Compile Include="Assets\Scripts\MarioLuigi.cs" />

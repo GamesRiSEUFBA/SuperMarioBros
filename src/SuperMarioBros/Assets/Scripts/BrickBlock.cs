@@ -30,13 +30,9 @@ public class BrickBlock : MonoBehaviour {
 			Instantiate (obj, initPos, trans.localRotation);
 			count++;
 			if (count == qnt) {
-				if (willBreak)
-					Break ();
-				else
-					Lock ();
+				Lock ();
 			}
-		} else
-			Break();
+		}
 	}
 
 	void Lock() {
@@ -45,15 +41,17 @@ public class BrickBlock : MonoBehaviour {
 	}
 
 	void Break() {
-		Instantiate (particle, initPos, trans.localRotation);
+		//Instantiate (particle, initPos, trans.localRotation);
 		Destroy (this.gameObject);
 	}
 
 	void Update () {
 		if (trans.position.y >= initPos.y + 0.5) {
+			if (willBreak)
+				Break ();
 			rb.velocity = new Vector2 (0, -6);
 		}
-		if (!locked && rb.velocity.y < 0 && trans.position.y <= initPos.y) {
+		if (!locked && !willBreak && rb.velocity.y < 0 && trans.position.y <= initPos.y) {
 			rb.velocity = new Vector2 (0, 0);
 			Open ();
 		}

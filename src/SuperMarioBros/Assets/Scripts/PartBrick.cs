@@ -22,6 +22,10 @@ public class PartBrick : MonoBehaviour {
 	}
 
 	void OnBecameInvisible() {
+		Destroy (GameObject.Find ("PartBrickTopL"));
+		Destroy (GameObject.Find ("PartBrickTopR"));
+		Destroy (GameObject.Find ("PartBrickDownL"));
+		Destroy (GameObject.Find ("PartBrickDownR"));
 		Destroy (this.gameObject);
 	}
 }

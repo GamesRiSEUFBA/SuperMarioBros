@@ -22,6 +22,8 @@ public class MarioLuigi : MonoBehaviour {
 	private bool col_up = false;
 	private bool col_bottom = false;
 
+	public int colliders = 0;
+
 	private Vector2 oldCamPos;
 
 	void Start () {
@@ -251,6 +253,8 @@ public class MarioLuigi : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (dead)
 			return;
+
+		colliders++;
 		//Debug.Log ("i am the bone of my peru");
 		Vector2 collPos = coll.gameObject.transform.position;
 		Vector2 rbPos = rb.position;
@@ -316,6 +320,11 @@ public class MarioLuigi : MonoBehaviour {
 
 		if (coll.gameObject.tag == "plant" || coll.gameObject.tag == "lava") {
 			KillMario ();
+		}
+
+		if (coll.gameObject.tag == "upgrade") {
+			anim.SetInteger ("MarioSize", 1);
+			Destroy (coll.gameObject);
 		}
 
 		//if (coll.gameObject.tag == "floor" || coll.gameObject.tag == "pipe" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "floor") 
@@ -393,6 +402,8 @@ public class MarioLuigi : MonoBehaviour {
 	void OnCollisionExit2D(Collision2D coll) {
 		if (dead)
 			return;
+		
+		colliders--;
 		
 		//if (coll.gameObject.tag == "block1" || coll.gameObject.tag == "pipe" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "floor") 
 		{
