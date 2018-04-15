@@ -6,7 +6,7 @@ public class MarioLuigi : MonoBehaviour {
 
 	private Rigidbody2D rb;
 	private BoxCollider2D box;
-	private Animator anim;
+	public Animator anim;
 	private SpriteRenderer sprite;
 	private bool rightKeyPressed = false, leftKeyPressed = false, jumpPressed = false, firePressed = false, turnTime = false, onFloor = false, onAxe = false;
 	public bool dead = false;
@@ -23,17 +23,22 @@ public class MarioLuigi : MonoBehaviour {
 	private bool col_bottom = false;
 
 	public int colliders = 0;
-
+	public MarioLuigi mario_object;
 	private Vector2 oldCamPos;
+
+	private scr_GameController gC;
+	//gC
 
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		box = GetComponent<BoxCollider2D> ();
 		anim = GetComponent<Animator> ();
 		sprite = GetComponent<SpriteRenderer> ();
+
+		gC = GameObject.Find("obj_GameController").GetComponent<scr_GameController>();
 	}
 
-	void checkInputs() { 
+	void checkInputs() {
 		if (Input.GetKeyUp (KeyCode.C)) {
 			jumpPressed = false;
 		}
@@ -56,7 +61,7 @@ public class MarioLuigi : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.LeftArrow)) {
 			leftKeyPressed = true;
 		} else if (Input.GetKeyDown (KeyCode.RightArrow)) {
-			
+
 			rightKeyPressed = true;
 		}
 		/*else
@@ -76,7 +81,7 @@ public class MarioLuigi : MonoBehaviour {
 	void checkAxe() {
 		if (onAxe) {
 			uint count = 0;
-			for (int i = 1; i <= 13 && count < 1000; count++) {				
+			for (int i = 1; i <= 13 && count < 1000; count++) {
 				Animator anim = GameObject.Find("BridgeCastle" + i).GetComponent<Animator> ();
 				anim.SetBool ("BridgeFall", true);
 				GameObject.Find ("BridgeCastle" + i).GetComponent<BoxCollider2D> ().size = new Vector2 (0, 0);
@@ -88,7 +93,7 @@ public class MarioLuigi : MonoBehaviour {
 	}
 
 	void Update () {
-		
+
 		if (!dead) {
 			updateMaxSpeed ();
 			checkAxe ();
@@ -134,7 +139,7 @@ public class MarioLuigi : MonoBehaviour {
 					transform.position = tempPosition;
 
 					if (onFloor == true)
-					{			
+					{
 						if (spd > 0 && turnTime == false)
 						{
 							turnTime = true;
@@ -149,7 +154,7 @@ public class MarioLuigi : MonoBehaviour {
 						}
 					}
 				}
-			} 
+			}
 			else if (rightKeyPressed)
 			{
 				//anim.SetBool ("Walking", true);
@@ -182,14 +187,14 @@ public class MarioLuigi : MonoBehaviour {
 					transform.position = tempPosition;
 
 					if (onFloor == true)
-					{			
+					{
 						if (spd < 0 && turnTime == false)
 						{
 							turnTime = true;
 							anim.SetBool ("Turn", true);
 							//rb.AddForce (new Vector2 (1.2f, 0), ForceMode2D.Impulse);
 						}
-						else if (spd > 0) 
+						else if (spd > 0)
 						{
 							turnTime = false;
 							anim.SetBool ("Turn", false);
@@ -206,7 +211,7 @@ public class MarioLuigi : MonoBehaviour {
 					if (dir_right == true)
 					{
 						col_dir = col_right;
-					} 
+					}
 					else
 					{
 						col_dir = col_left;
@@ -218,7 +223,7 @@ public class MarioLuigi : MonoBehaviour {
 						tempPosition.x = tempPosition.x + spd;
 
 						transform.position = tempPosition;
-						
+
 						if (spd < 0)
 						{
 							spd += 0.005f;
@@ -236,7 +241,7 @@ public class MarioLuigi : MonoBehaviour {
 		}
 	}
 
-	void KillMario() {
+	public void KillMario() {
 		dead = true;
 		anim.SetBool ("Dead", true);
 		box.size = new Vector2 (0, 0);
@@ -265,11 +270,18 @@ public class MarioLuigi : MonoBehaviour {
 		}
 
 		if (coll.gameObject.tag == "goomba") {
+			Debug.Log ("Colided with Goomba!");
 			if (rbPos.y >= collPos.y + 0.5) {
 				rb.AddForce (new Vector2 (0, 14), ForceMode2D.Impulse);
 				coll.gameObject.GetComponent<Goomba> ().Stomped ();
 			} else {
-				KillMario ();
+				//FindObjectOfType<global_controller>().damage_mario();
+				//controller.damage_mario ();
+				//otherGameObject.GetComponent.DoSomething();
+				//var controller_aaa = GameObject.Find("obj_GameController").GetComponent<scr_GameController>().damage_mario();
+
+				gC.damage_mario();
+				Debug.Log ("Collided with Goomba, not sure if damaged!");
 			}
 		}
 
@@ -301,7 +313,7 @@ public class MarioLuigi : MonoBehaviour {
 			{
 				if (other_koopa.current_state == KoopaTroopaGreen.KoopaState.NORMAL || other_koopa.current_state == KoopaTroopaGreen.KoopaState.SHELL_SLIDING)
 				{
-					KillMario ();
+					gC.damage_mario();
 				}
 				else
 				{
@@ -318,16 +330,22 @@ public class MarioLuigi : MonoBehaviour {
 			}
 		}
 
-		if (coll.gameObject.tag == "plant" || coll.gameObject.tag == "lava") {
+		if (coll.gameObject.tag == "lava") {
 			KillMario ();
+		}
+
+		if (coll.gameObject.tag == "plant") {
+			gC.damage_mario();
 		}
 
 		if (coll.gameObject.tag == "upgrade") {
 			anim.SetInteger ("MarioSize", 1);
+			gC.mario_switch_state(scr_GameController.MarioState.BIG);
+			//controller_object.mario_switch_state(scr_GameController.MarioState.BIG);
 			Destroy (coll.gameObject);
 		}
 
-		//if (coll.gameObject.tag == "floor" || coll.gameObject.tag == "pipe" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "floor") 
+		//if (coll.gameObject.tag == "floor" || coll.gameObject.tag == "pipe" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "floor")
 		{
 			//rb.velocity = new Vector2 (rb.velocity.x, 0);
 
@@ -365,13 +383,13 @@ public class MarioLuigi : MonoBehaviour {
 				}
 			}
 		}
-			
+
 	}
 
 	void OnCollisionStay2D(Collision2D coll) {
 		if (dead)
 			return;
-		
+
 		if (coll.gameObject.tag == "block1" || coll.gameObject.tag == "pipe" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "floor") {
 			onFloor = true;
 			col_bottom = true;
@@ -402,10 +420,10 @@ public class MarioLuigi : MonoBehaviour {
 	void OnCollisionExit2D(Collision2D coll) {
 		if (dead)
 			return;
-		
+
 		colliders--;
-		
-		//if (coll.gameObject.tag == "block1" || coll.gameObject.tag == "pipe" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "floor") 
+
+		//if (coll.gameObject.tag == "block1" || coll.gameObject.tag == "pipe" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "floor")
 		{
 			//onFloor = false;
 			//col_bottom = false;
@@ -427,4 +445,3 @@ public class MarioLuigi : MonoBehaviour {
 		}
 	}
 }
-
