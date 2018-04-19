@@ -1,16 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MarioLuigi.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\BrickBlock.cs">
     <Files>
       <File FileName="Assets\Scripts\Goomba.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\SurpriseBlock.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Mushroom.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MarioLuigi.cs" Line="261" Column="1" />
-      <File FileName="Assets\Scripts\BrickBlock.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\MarioLuigi.cs" Line="37" Column="58" />
+      <File FileName="..\..\..\..\SuperMarioBros\Assets\Scripts\MarioLuigi.cs" Line="366" Column="4" />
+      <File FileName="Assets\Scripts\BrickBlock.cs" Line="68" Column="45" />
+      <File FileName="..\..\..\..\SuperMarioBros\Assets\Scripts\BrickBlock.cs" Line="69" Column="40" />
       <File FileName="Assets\Scripts\KoopaTroopaGreen.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\GetCoin.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\PartBrick.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\scr_GameController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\scr_GameController.cs" Line="101" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61764726347983174}
   m_Layer: 0
   m_Name: Tile2-11
-  m_TagString: pipe
+  m_TagString: pipein
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

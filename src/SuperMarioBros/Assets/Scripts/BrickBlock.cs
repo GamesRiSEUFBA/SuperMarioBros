@@ -16,6 +16,7 @@ public class BrickBlock : MonoBehaviour {
 	private Vector2 initPos;
 	private int count = 0;
 	private bool locked = false;
+	private int sizeMario;
 
 	void Start () {
 		trans = GetComponent<Transform> ();
@@ -47,13 +48,14 @@ public class BrickBlock : MonoBehaviour {
 
 	void Update () {
 		if (trans.position.y >= initPos.y + 0.5) {
-			if (willBreak)
+			if (willBreak && sizeMario > 0)
 				Break ();
 			rb.velocity = new Vector2 (0, -6);
 		}
-		if (!locked && !willBreak && rb.velocity.y < 0 && trans.position.y <= initPos.y) {
+		if (!locked && rb.velocity.y < 0 && trans.position.y <= initPos.y) {
 			rb.velocity = new Vector2 (0, 0);
-			Open ();
+			if (!willBreak)
+				Open ();
 		}
 	}
 
@@ -62,7 +64,9 @@ public class BrickBlock : MonoBehaviour {
 		Vector2 transPos = trans.position;
 
 		if (!locked && coll.gameObject.tag == "player") {
-			if (transPos.y - 0.5 >= collPos.y) {
+			sizeMario = coll.gameObject.GetComponent<Animator> ().GetInteger("MarioSize");
+			float alt = (sizeMario == 0) ? 1.1f : 1.5f;
+			if (transPos.y >= collPos.y + alt) {
 				rb.velocity = new Vector2 (0, 6);
 			}
 		}

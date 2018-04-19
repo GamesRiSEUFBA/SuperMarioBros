@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class scr_GameController : MonoBehaviour {
-GameObject referenceObject;
+
+	GameObject referenceObject;
+
 	public enum MarioState
 	{
 		SMALL,
@@ -89,9 +91,9 @@ GameObject referenceObject;
 	}
 	// Use this for initialization
 	void Start () {
-	DontDestroyOnLoad(gameObject);
-	Debug.Log ("I exist!");
-	mario_object = GameObject.Find("Player").GetComponent<MarioLuigi>();
+		DontDestroyOnLoad(gameObject);
+		Debug.Log ("I exist!");
+		mario_object = GameObject.Find("Player").GetComponent<MarioLuigi>();
 	}
 
 	// Update is called once per frame

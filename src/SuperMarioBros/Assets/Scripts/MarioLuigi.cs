@@ -27,7 +27,6 @@ public class MarioLuigi : MonoBehaviour {
 	private Vector2 oldCamPos;
 
 	private scr_GameController gC;
-	//gC
 
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
@@ -36,6 +35,10 @@ public class MarioLuigi : MonoBehaviour {
 		sprite = GetComponent<SpriteRenderer> ();
 
 		gC = GameObject.Find("obj_GameController").GetComponent<scr_GameController>();
+	}
+
+	public int getSizeMario() {
+		return anim.GetInteger ("MarioSize");
 	}
 
 	void checkInputs() {
@@ -54,7 +57,7 @@ public class MarioLuigi : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.C)) {
 			if (rb.velocity.y == 0 && !jumpPressed) {
 				jumpPressed = true;
-				rb.AddForce (new Vector2 (0, 14), ForceMode2D.Impulse);
+				rb.AddForce (new Vector2 (0, 16), ForceMode2D.Impulse);
 			}
 		}
 
@@ -242,10 +245,19 @@ public class MarioLuigi : MonoBehaviour {
 	}
 
 	public void KillMario() {
-		dead = true;
-		anim.SetBool ("Dead", true);
-		box.size = new Vector2 (0, 0);
-		rb.AddForce (new Vector2 (0, 20), ForceMode2D.Impulse);
+		if (getSizeMario () > 0) {
+			anim.SetInteger ("MarioSize", getSizeMario () - 1);
+			if (getSizeMario () == 0) {
+				box.size = new Vector2 (0.12f, 0.15f);
+				box.offset = new Vector2 (0, 0.075f);
+			}
+		}
+		else {
+			dead = true;
+			anim.SetBool ("Dead", true);
+			box.size = new Vector2 (0, 0);
+			rb.AddForce (new Vector2 (0, 20), ForceMode2D.Impulse);
+		}
 	}
 
 	void OnBecameInvisible() {
@@ -340,9 +352,17 @@ public class MarioLuigi : MonoBehaviour {
 
 		if (coll.gameObject.tag == "upgrade") {
 			anim.SetInteger ("MarioSize", 1);
+			Destroy (coll.gameObject);
+			box.size = new Vector2 (0.14f, 0.3f);
+			box.offset = new Vector2 (0, 0.15f);
 			gC.mario_switch_state(scr_GameController.MarioState.BIG);
 			//controller_object.mario_switch_state(scr_GameController.MarioState.BIG);
+		}
+
+		if (coll.gameObject.tag == "fire") {
+			anim.SetInteger ("MarioSize", 2);
 			Destroy (coll.gameObject);
+			gC.mario_switch_state(scr_GameController.MarioState.FIRE);
 		}
 
 		//if (coll.gameObject.tag == "floor" || coll.gameObject.tag == "pipe" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "floor")
@@ -390,7 +410,7 @@ public class MarioLuigi : MonoBehaviour {
 		if (dead)
 			return;
 
-		if (coll.gameObject.tag == "block1" || coll.gameObject.tag == "pipe" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "floor") {
+		if (coll.gameObject.tag == "block1" || coll.gameObject.tag == "pipe"|| coll.gameObject.tag == "pipein" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "floor") {
 			onFloor = true;
 			col_bottom = true;
 		} else {
