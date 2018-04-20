@@ -21,6 +21,7 @@ public class scr_GameController : MonoBehaviour {
 	public int score = 0;
 	public int current_course = 1;
 	public int current_world = 1;
+	public int coins = 0;
 
 	public int damage_time_counter = -1;
 	public int damage_time = 300;
@@ -116,5 +117,17 @@ public class scr_GameController : MonoBehaviour {
 	public void restart_course ()
 	{
 		//restart current course
+	}
+
+	public void add_coin ()
+	{
+		coins++;
+		score += 200;
+		//play sound here
+		if (coins >= 100)
+		{
+			lives++;
+			coins = 0;
+		}
 	}
 }

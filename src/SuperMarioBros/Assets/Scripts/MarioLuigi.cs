@@ -21,6 +21,8 @@ public class MarioLuigi : MonoBehaviour {
 	private bool col_left = false;
 	private bool col_up = false;
 	private bool col_bottom = false;
+	private int combo_counter = 0;
+	private int star_combo_counter = 0;
 
 	public int colliders = 0;
 	public MarioLuigi mario_object;
@@ -34,7 +36,7 @@ public class MarioLuigi : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 		sprite = GetComponent<SpriteRenderer> ();
 
-		gC = GameObject.Find("obj_GameController").GetComponent<scr_GameController>();
+		gC = GameObject.Find("global_controller").GetComponent<scr_GameController>();
 	}
 
 	public int getSizeMario() {
@@ -44,6 +46,11 @@ public class MarioLuigi : MonoBehaviour {
 	void checkInputs() {
 		if (Input.GetKeyUp (KeyCode.C)) {
 			jumpPressed = false;
+			if (rb.velocity.y > 0)
+			{
+				rb.AddForce (new Vector2 (0, -6), ForceMode2D.Impulse);
+			}
+
 		}
 
 		if (Input.GetKeyUp (KeyCode.LeftArrow)) {
@@ -59,6 +66,16 @@ public class MarioLuigi : MonoBehaviour {
 				jumpPressed = true;
 				rb.AddForce (new Vector2 (0, 16), ForceMode2D.Impulse);
 			}
+		}
+
+		if (Input.GetKey (KeyCode.X)) {
+			if (rb.velocity.y == 0 && !jumpPressed) {
+				spd_max = 0.135f;
+			}
+		}
+		else
+		{
+			spd_max = 0.1f;
 		}
 
 		if (Input.GetKeyDown (KeyCode.LeftArrow)) {
@@ -286,6 +303,7 @@ public class MarioLuigi : MonoBehaviour {
 			if (rbPos.y >= collPos.y + 0.5) {
 				rb.AddForce (new Vector2 (0, 14), ForceMode2D.Impulse);
 				coll.gameObject.GetComponent<Goomba> ().Stomped ();
+				add_combo();
 			} else {
 				//FindObjectOfType<global_controller>().damage_mario();
 				//controller.damage_mario ();
@@ -303,7 +321,7 @@ public class MarioLuigi : MonoBehaviour {
 			if (rbPos.y >= collPos.y + 0.5)
 			{
 				rb.AddForce (new Vector2 (0, 14), ForceMode2D.Impulse);
-
+				add_combo();
 				if (other_koopa.current_state == KoopaTroopaGreen.KoopaState.NORMAL || other_koopa.current_state == KoopaTroopaGreen.KoopaState.SHELL_SLIDING)
 				{
 					other_koopa.switch_state (KoopaTroopaGreen.KoopaState.SHELL_STANDBY);
@@ -413,6 +431,7 @@ public class MarioLuigi : MonoBehaviour {
 		if (coll.gameObject.tag == "block1" || coll.gameObject.tag == "pipe"|| coll.gameObject.tag == "pipein" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "floor") {
 			onFloor = true;
 			col_bottom = true;
+			combo_counter = 0;
 		} else {
 			onFloor = false;
 			col_bottom = false;
@@ -462,6 +481,45 @@ public class MarioLuigi : MonoBehaviour {
 					onFloor = false;
 				//}
 			}
+		}
+	}
+
+	void add_combo()
+	{
+		combo_counter++;
+		switch(combo_counter)
+		{
+			case 1:
+				gC.score += 200;
+				break;
+
+			case 2:
+				gC.score += 400;
+				break;
+
+			case 3:
+				gC.score += 800;
+				break;
+
+			case 4:
+				gC.score += 1000;
+				break;
+
+			case 5:
+				gC.score += 2000;
+				break;
+
+			case 6:
+				gC.score += 4000;
+				break;
+
+			case 7:
+				gC.score += 8000;
+				break;
+
+			default:
+				gC.lives++;
+				break;
 		}
 	}
 }
