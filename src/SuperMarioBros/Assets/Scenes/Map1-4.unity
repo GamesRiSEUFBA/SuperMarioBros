@@ -2658,6 +2658,48 @@ Transform:
   m_PrefabParentObject: {fileID: 4812083922214922, guid: e23792a0d23187d42baf9e615b55851c,
     type: 2}
   m_PrefabInternal: {fileID: 1315467499}
+--- !u!1001 &785486248
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4864821849710634, guid: 6c4d6ea01d5ad3f48a1c97dad95cf53c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 126.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 4864821849710634, guid: 6c4d6ea01d5ad3f48a1c97dad95cf53c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4864821849710634, guid: 6c4d6ea01d5ad3f48a1c97dad95cf53c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.328125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4864821849710634, guid: 6c4d6ea01d5ad3f48a1c97dad95cf53c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4864821849710634, guid: 6c4d6ea01d5ad3f48a1c97dad95cf53c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4864821849710634, guid: 6c4d6ea01d5ad3f48a1c97dad95cf53c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4864821849710634, guid: 6c4d6ea01d5ad3f48a1c97dad95cf53c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4864821849710634, guid: 6c4d6ea01d5ad3f48a1c97dad95cf53c, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 6c4d6ea01d5ad3f48a1c97dad95cf53c, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &805860228
 Prefab:
   m_ObjectHideFlags: 0
@@ -5323,7 +5365,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
-  m_TileRefreshArray: []
 --- !u!1001 &1599767390
 Prefab:
   m_ObjectHideFlags: 0

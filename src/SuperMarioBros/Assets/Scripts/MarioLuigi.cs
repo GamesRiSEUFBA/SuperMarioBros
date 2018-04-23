@@ -364,7 +364,11 @@ public class MarioLuigi : MonoBehaviour {
 			KillMario ();
 		}
 
-		if (coll.gameObject.tag == "plant") {
+		if (coll.gameObject.tag == "plant") || (coll.gameObject.tag == "Bowser") {
+			gC.damage_mario();
+		}
+
+		if (coll.gameObject.tag == "Bowser") {
 			gC.damage_mario();
 		}
 
