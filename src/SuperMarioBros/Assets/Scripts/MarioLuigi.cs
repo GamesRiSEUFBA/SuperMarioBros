@@ -318,7 +318,7 @@ public class MarioLuigi : MonoBehaviour {
 		if (coll.gameObject.tag == "KoopaTroopa")
 		{
 			var other_koopa = coll.gameObject.GetComponent<KoopaTroopaGreen> ();
-			if (rbPos.y >= collPos.y + 0.5)
+			if (rbPos.y >= collPos.y + 0.1)
 			{
 				rb.AddForce (new Vector2 (0, 14), ForceMode2D.Impulse);
 				add_combo();
@@ -364,7 +364,7 @@ public class MarioLuigi : MonoBehaviour {
 			KillMario ();
 		}
 
-		if (coll.gameObject.tag == "plant") || (coll.gameObject.tag == "Bowser") {
+		if ((coll.gameObject.tag == "plant") || (coll.gameObject.tag == "Bowser")) {
 			gC.damage_mario();
 		}
 
