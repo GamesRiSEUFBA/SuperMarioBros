@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class scr_Bowser : MonoBehaviour {
 
+	private Rigidbody2D rigidBowser;
+	private Transform transBowser;
+	private Animator animBowser;
+	private BoxCollider2D boxBowser;
 	private bool fall = false;
 	private float velX = 3;
 	private bool var_right = false;
@@ -13,8 +17,6 @@ public class scr_Bowser : MonoBehaviour {
 	private int counter_jump_time = 0;
 	private int counter_jump_max = 360;
 	private int jump_dir = 0;
-
-	private Rigidbody2D rigidBowser;
 
 	// Use this for initialization
 	void Start () {
