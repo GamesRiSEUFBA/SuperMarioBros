@@ -368,8 +368,14 @@ public class MarioLuigi : MonoBehaviour {
 			gC.damage_mario();
 		}
 
-		if (coll.gameObject.tag == "Bowser") {
+		if (coll.gameObject.tag == "bowser") {
 			gC.damage_mario();
+		}
+
+		if ((coll.gameObject.name == "Fireball") || (coll.gameObject.tag == "fireball")){
+			Debug.Log ("Collided with fireball!");
+			gC.damage_mario();
+			Destroy (coll.gameObject);
 		}
 
 		if (coll.gameObject.tag == "upgrade") {
