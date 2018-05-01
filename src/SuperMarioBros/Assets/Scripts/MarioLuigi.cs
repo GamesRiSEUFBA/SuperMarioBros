@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MarioLuigi : MonoBehaviour {
 
@@ -8,7 +9,7 @@ public class MarioLuigi : MonoBehaviour {
 	private BoxCollider2D box;
 	public Animator anim;
 	private SpriteRenderer sprite;
-	private bool rightKeyPressed = false, leftKeyPressed = false, jumpPressed = false, firePressed = false, turnTime = false, onFloor = false, onAxe = false;
+	private bool rightKeyPressed = false, leftKeyPressed = false, jumpPressed = false, firePressed = false, turnTime = false, onFloor = false, onAxe = false, onPipe = false;
 	public bool dead = false;
 	private float maxVel = 6;
 	private float spd = 0;
@@ -23,6 +24,8 @@ public class MarioLuigi : MonoBehaviour {
 	private bool col_bottom = false;
 	private int combo_counter = 0;
 	private int star_combo_counter = 0;
+	public Vector2 outPosition2;
+	public bool leavingPipe = false;
 
 	public int colliders = 0;
 	public MarioLuigi mario_object;
@@ -113,12 +116,11 @@ public class MarioLuigi : MonoBehaviour {
 	}
 
 	void Update () {
-
-		if (!dead) {
+		if (!dead && !onPipe && !leavingPipe) {
 			updateMaxSpeed ();
 			checkAxe ();
 			checkInputs ();
-
+				
 			if (jumpPressed) {
 				anim.SetBool ("Jump", true);
 				if (onFloor)
@@ -129,18 +131,14 @@ public class MarioLuigi : MonoBehaviour {
 				}
 			}
 
-			if (leftKeyPressed)
-			{
-				if (col_left == true)
-				{
+			if (leftKeyPressed) {
+				if (col_left == true) {
 					Debug.Log ("Can't move, there's a colllision on the left side!");
-				}
-				else
-				{
+				} else {
 					if (onFloor)
 						sprite.flipX = true;
 					//if (rb.velocity.x == 0)
-						//turnTime = false;
+					//turnTime = false;
 					/*
 					if (rb.velocity.x > 0 && !turnTime)
 						rb.velocity = new Vector2 (-rb.velocity.x, rb.velocity.y);
@@ -149,7 +147,7 @@ public class MarioLuigi : MonoBehaviour {
 						*/
 
 					dir_right = false;
-					if (Mathf.Abs(spd) < spd_max)
+					if (Mathf.Abs (spd) < spd_max)
 						spd -= accel;
 					else if (spd > 0)
 						spd -= accel * 0.5f;
@@ -158,36 +156,27 @@ public class MarioLuigi : MonoBehaviour {
 
 					transform.position = tempPosition;
 
-					if (onFloor == true)
-					{
-						if (spd > 0 && turnTime == false)
-						{
+					if (onFloor == true) {
+						if (spd > 0 && turnTime == false) {
 							turnTime = true;
 							anim.SetBool ("Turn", true);
 							//rb.AddForce (new Vector2 (1.2f, 0), ForceMode2D.Impulse);
-						}
-						else if (spd < 0)
-						{
+						} else if (spd < 0) {
 							turnTime = false;
 							anim.SetBool ("Turn", false);
 							anim.SetBool ("Walking", true);
 						}
 					}
 				}
-			}
-			else if (rightKeyPressed)
-			{
+			} else if (rightKeyPressed) {
 				//anim.SetBool ("Walking", true);
-				if (col_right == true)
-				{
+				if (col_right == true) {
 					Debug.Log ("Can't move, there's a colllision on the right side!");
-				}
-				else
-				{
+				} else {
 					if (onFloor)
 						sprite.flipX = false;
 					//if (rb.velocity.x == 0)
-						//turnTime = false;
+					//turnTime = false;
 					/*
 					if (rb.velocity.x < 0 && !turnTime)
 						rb.velocity = new Vector2 (-rb.velocity.x, rb.velocity.y);
@@ -206,16 +195,12 @@ public class MarioLuigi : MonoBehaviour {
 
 					transform.position = tempPosition;
 
-					if (onFloor == true)
-					{
-						if (spd < 0 && turnTime == false)
-						{
+					if (onFloor == true) {
+						if (spd < 0 && turnTime == false) {
 							turnTime = true;
 							anim.SetBool ("Turn", true);
 							//rb.AddForce (new Vector2 (1.2f, 0), ForceMode2D.Impulse);
-						}
-						else if (spd > 0)
-						{
+						} else if (spd > 0) {
 							turnTime = false;
 							anim.SetBool ("Turn", false);
 							anim.SetBool ("Walking", true);
@@ -226,37 +211,39 @@ public class MarioLuigi : MonoBehaviour {
 				anim.SetBool ("Walking", false);
 				/*if (rb.velocity.x != 0)
 					rb.AddForce (new Vector2 ((rb.velocity.x / Mathf.Abs (rb.velocity.x)) * (-15), 0), ForceMode2D.Force);*/
-				if (spd != 0)
-				{
-					if (dir_right == true)
-					{
+				if (spd != 0) {
+					if (dir_right == true) {
 						col_dir = col_right;
-					}
-					else
-					{
+					} else {
 						col_dir = col_left;
 					}
 
-					if (col_dir == false)
-					{
+					if (col_dir == false) {
 						var tempPosition = transform.position;
 						tempPosition.x = tempPosition.x + spd;
 
 						transform.position = tempPosition;
 
-						if (spd < 0)
-						{
+						if (spd < 0) {
 							spd += 0.005f;
 							if (spd > 0)
 								spd = 0;
-						} else if (spd > 0)
-						{
+						} else if (spd > 0) {
 							spd -= 0.005f;
 							if (spd < 0)
 								spd = 0;
 						}
 					}
 				}
+			}
+		} else if (leavingPipe) {
+			print ("Leave");
+			rb.velocity = new Vector2 (0, 1.5f);
+			if (rb.position.y >= outPosition2.y) {
+				onPipe = false;
+				rb.velocity = new Vector2 (0, 0);
+				leavingPipe = false;
+				print ("Parou");
 			}
 		}
 	}
@@ -438,13 +425,23 @@ public class MarioLuigi : MonoBehaviour {
 		if (dead)
 			return;
 
-		if (coll.gameObject.tag == "block1" || coll.gameObject.tag == "pipe"|| coll.gameObject.tag == "pipein" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "floor") {
+		if (coll.gameObject.tag == "block1" || coll.gameObject.tag == "pipe"|| coll.gameObject.tag == "pipeindown"|| coll.gameObject.tag == "pipeinleft" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "floor") {
 			onFloor = true;
 			col_bottom = true;
 			combo_counter = 0;
 		} else {
 			onFloor = false;
 			col_bottom = false;
+		}
+
+		if (coll.gameObject.tag.Contains ("pipe")) {
+			coll.gameObject.GetComponent<BoxCollider2D> ().isTrigger = onPipe;
+			
+			if (coll.gameObject.tag.Contains ("pipein")) {
+				if (coll.gameObject.GetComponent<Pipe> ().onPipeDown || coll.gameObject.GetComponent<Pipe> ().onPipeLeft) {
+					onPipe = true;
+				}
+			}
 		}
 		/*
 		foreach (ContactPoint2D hitPos in coll.contacts)

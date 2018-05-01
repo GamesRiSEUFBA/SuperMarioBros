@@ -62,10 +62,12 @@
      <Compile Include="Assets\Scripts\MarioLuigi.cs" />
      <Compile Include="Assets\Scripts\Mushroom.cs" />
      <Compile Include="Assets\Scripts\PartBrick.cs" />
+     <Compile Include="Assets\Scripts\Pipe.cs" />
      <Compile Include="Assets\Scripts\Plant.cs" />
      <Compile Include="Assets\Scripts\Platform.cs" />
      <Compile Include="Assets\Scripts\Platform2.cs" />
      <Compile Include="Assets\Scripts\scr_Bowser.cs" />
+     <Compile Include="Assets\Scripts\scr_Fireball.cs" />
      <Compile Include="Assets\Scripts\scr_GameController.cs" />
      <Compile Include="Assets\Scripts\SurpriseBlock.cs" />
      <Compile Include="Assets\Scripts\Toad.cs" />

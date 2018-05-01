@@ -21,6 +21,10 @@ TagManager:
   - plant
   - pipein
   - KoopaTroopa
+  - fireball
+  - bowser
+  - pipeindown
+  - pipeinleft
   layers:
   - Default
   - TransparentFX
