@@ -13,7 +13,7 @@ public class GetCoin : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 
 		initPos = rb.transform.position;
-		gC = GameObject.Find("obj_GameController").GetComponent<scr_GameController>();
+		gC = GameObject.Find("global_controller").GetComponent<scr_GameController>();
 		rb.AddForce(new Vector2 (0, 20), ForceMode2D.Impulse);
 	}
 

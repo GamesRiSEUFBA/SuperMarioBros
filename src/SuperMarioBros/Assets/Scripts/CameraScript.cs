@@ -8,6 +8,8 @@ public class CameraScript : MonoBehaviour {
 	private Rigidbody2D rbMario;
 	private MarioLuigi csMario;
 
+	public float xEndMap;
+
 	void Start () {
 		rbMario = GameObject.Find ("Player").GetComponent<Rigidbody2D> ();
 		csMario = GameObject.Find ("Player").GetComponent<MarioLuigi> ();
@@ -15,7 +17,10 @@ public class CameraScript : MonoBehaviour {
 	}
 
 	void Update () {
-		if (!csMario.dead && oldCamPos.x < rbMario.transform.position.x) {
+		if (Camera.main.transform.position.x >= xEndMap) {
+			Camera.main.transform.position = new Vector3 (Camera.main.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
+		}
+		else if (!csMario.dead && oldCamPos.x < rbMario.transform.position.x) {
 			Camera.main.transform.position = new Vector3 (rbMario.transform.position.x, Camera.main.transform.position.y, -10);
 			oldCamPos = Camera.main.transform.position;
 		}

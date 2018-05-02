@@ -6,7 +6,7 @@ public class Platform : MonoBehaviour {
 
 	private Rigidbody2D rb;
 	private int velX = 0, velY = 0;
-	private Vector2 pos;
+	public Vector2 pos;
 
 	public float distX;
 	public float distY;
