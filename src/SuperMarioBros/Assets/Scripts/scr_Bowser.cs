@@ -9,15 +9,15 @@ public class scr_Bowser : MonoBehaviour {
 	private Animator animBowser;
 	private BoxCollider2D boxBowser;
 	private bool fall = false;
-	private float velX = 3;
+	private float velX = 2;
 	private bool var_right = false;
 	private int counter_move = 0;
-	private int counter_move_max = 180;
+	private int counter_move_max = 140;
 	private int counter_jump = 0;
 	private int counter_jump_time = 0;
 	private int counter_jump_max = 360;
 	private int jump_dir = 0;
-
+	private bool dead = false;
 	private int counter_fireball = 0;
 	private int counter_fireball_max = 200;
 
@@ -30,51 +30,49 @@ public class scr_Bowser : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		counter_move++;
-		counter_jump++;
-		counter_fireball++;
-
-		if (counter_move >= counter_move_max)
+	void Update () 
+	{
+		if (dead == false)
 		{
-			velX = -velX;
-			counter_move = 0;
-		}
+			counter_move++;
+			counter_jump++;
+			counter_fireball++;
 
-		if (counter_jump >= counter_jump_max)
-		{
-			/*
-			if (counter_jump <= counter_jump_max + 60)
+			if (counter_move >= counter_move_max)
 			{
-				var tempPosition = transform.position;
-				tempPosition.y = tempPosition.y + counter_jump - counter_jump_max;
-				transform.position = tempPosition;
+				velX = -velX;
+				counter_move = 0;
 			}
 
-			if (counter_jump <= counter_jump_max + 120)
+			if (counter_jump >= counter_jump_max)
 			{
-				var tempPosition = transform.position;
-				tempPosition.y = tempPosition.y + 60 - counter_jump - counter_jump_max;
-				transform.position = tempPosition;
-			}
-			else
-			{
+				rigidBowser.AddForce (new Vector2 (0, 5), ForceMode2D.Impulse);
 				counter_jump = 0;
+				Debug.Log ("Bowser jumped!");
 			}
-			*/
-			rigidBowser.AddForce (new Vector2 (0, 5), ForceMode2D.Impulse);
-			counter_jump = 0;
-			Debug.Log ("Bowser jumped!");
-		}
 
-		if (counter_fireball >= counter_fireball_max)
+			if (counter_fireball >= counter_fireball_max)
+			{
+				//create firaball
+				Instantiate(Fireball, transform.position, transform.rotation);
+				Debug.Log ("Bowser threw a fireball!");
+				counter_fireball = 0;
+			}
+		}
+		else
 		{
-			//create firaball
-			Instantiate(Fireball, transform.position, transform.rotation);
-			Debug.Log ("Bowser threw a fireball!");
-			counter_fireball = 0;
+			rigidBowser.AddForce (new Vector2 (0, -3), ForceMode2D.Impulse);
 		}
 
 		rigidBowser.velocity = new Vector2 (velX, rigidBowser.velocity.y);
+	}
+
+	void OnCollisionEnter2D(Collision2D coll)
+	{
+		if (coll.gameObject.tag == "lava") 
+		{
+			dead = true;
+			Destroy (this.gameObject);
+		}
 	}
 }
