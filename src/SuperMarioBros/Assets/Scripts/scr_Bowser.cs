@@ -56,6 +56,7 @@ public class scr_Bowser : MonoBehaviour {
 				//create firaball
 				Instantiate(Fireball, transform.position, transform.rotation);
 				Debug.Log ("Bowser threw a fireball!");
+				scr_GameController.play_sound(scr_GameController.Sound.BOWSERFIREBALL);
 				counter_fireball = 0;
 			}
 		}

@@ -67,6 +67,7 @@ public class MarioLuigi : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.C)) {
 			if (rb.velocity.y == 0 && !jumpPressed) {
 				jumpPressed = true;
+				scr_GameController.play_sound(scr_GameController.Sound.JUMP);
 				rb.AddForce (new Vector2 (0, 16), ForceMode2D.Impulse);
 			}
 		}
@@ -261,6 +262,7 @@ public class MarioLuigi : MonoBehaviour {
 			anim.SetBool ("Dead", true);
 			box.size = new Vector2 (0, 0);
 			rb.AddForce (new Vector2 (0, 20), ForceMode2D.Impulse);
+			scr_GameController.play_sound(scr_GameController.Sound.PLAYERDIED);
 		}
 	}
 
@@ -290,6 +292,7 @@ public class MarioLuigi : MonoBehaviour {
 			if (rbPos.y >= collPos.y + 0.5) {
 				rb.AddForce (new Vector2 (0, 14), ForceMode2D.Impulse);
 				coll.gameObject.GetComponent<Goomba> ().Stomped ();
+				scr_GameController.play_sound(scr_GameController.Sound.STOMP);
 				add_combo();
 			} else {
 				//FindObjectOfType<global_controller>().damage_mario();
@@ -312,6 +315,7 @@ public class MarioLuigi : MonoBehaviour {
 				if (other_koopa.current_state == KoopaTroopaGreen.KoopaState.NORMAL || other_koopa.current_state == KoopaTroopaGreen.KoopaState.SHELL_SLIDING)
 				{
 					other_koopa.switch_state (KoopaTroopaGreen.KoopaState.SHELL_STANDBY);
+					scr_GameController.play_sound(scr_GameController.Sound.STOMP);
 				}
 				else
 				{
@@ -367,6 +371,7 @@ public class MarioLuigi : MonoBehaviour {
 
 		if (coll.gameObject.tag == "upgrade") {
 			anim.SetInteger ("MarioSize", 1);
+			scr_GameController.play_sound(scr_GameController.Sound.POWERUP);
 			Destroy (coll.gameObject);
 			box.size = new Vector2 (0.14f, 0.3f);
 			box.offset = new Vector2 (0, 0.15f);
@@ -378,6 +383,7 @@ public class MarioLuigi : MonoBehaviour {
 			anim.SetInteger ("MarioSize", 2);
 			Destroy (coll.gameObject);
 			gC.mario_switch_state(scr_GameController.MarioState.FIRE);
+			scr_GameController.play_sound(scr_GameController.Sound.POWERUP);
 		}
 
 		//if (coll.gameObject.tag == "floor" || coll.gameObject.tag == "pipe" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "floor")
