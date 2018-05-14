@@ -287,6 +287,13 @@ public class MarioLuigi : MonoBehaviour {
 			Destroy (coll.gameObject);
 		}
 
+		if (coll.gameObject.tag == "coin")
+		{
+			Debug.Log ("Colided with coin!");
+			gC.add_coin();
+			Destroy (coll.gameObject);
+		}
+
 		if (coll.gameObject.tag == "goomba") {
 			Debug.Log ("Colided with Goomba!");
 			if (rbPos.y >= collPos.y + 0.5) {
