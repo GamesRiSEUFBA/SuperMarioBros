@@ -34,4 +34,11 @@ public class FireUpgrade : MonoBehaviour {
 	void OnBecameInvisible() {
 		Destroy (this.gameObject);
 	}
+
+
+	void OnCollisionEnter2D(Collision2D coll) {
+		if (coll.gameObject.tag != "player") {
+			Physics2D.IgnoreCollision (coll.collider, coll.otherCollider);
+		}
+	}
 }

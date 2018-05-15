@@ -9,7 +9,7 @@ public class MarioLuigi : MonoBehaviour {
 	private BoxCollider2D box;
 	public Animator anim;
 	private SpriteRenderer sprite;
-	private bool rightKeyPressed = false, leftKeyPressed = false, jumpPressed = false, firePressed = false, turnTime = false, onFloor = false, onAxe = false, onPipe = false;
+	private bool rightKeyPressed = false, leftKeyPressed = false, jumpPressed = false, firePressed = false, turnTime = false, onFloor = false, onAxe = false, onPipe = false, onPlatform = false;
 	public bool dead = false;
 	private float maxVel = 6;
 	private float spd = 0;
@@ -65,7 +65,7 @@ public class MarioLuigi : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown (KeyCode.C)) {
-			if (rb.velocity.y == 0 && !jumpPressed) {
+			if ((rb.velocity.y == 0 || onPlatform) && !jumpPressed) {
 				jumpPressed = true;
 				scr_GameController.play_sound(scr_GameController.Sound.JUMP);
 				rb.AddForce (new Vector2 (0, 16), ForceMode2D.Impulse);
@@ -127,7 +127,7 @@ public class MarioLuigi : MonoBehaviour {
 				if (onFloor)
 					jumpPressed = false;
 			} else {
-				if (rb.velocity.y == 0 && onFloor) {
+				if ((rb.velocity.y == 0 && onFloor) || onPlatform) {
 					anim.SetBool ("Jump", false);
 				}
 			}
@@ -271,6 +271,12 @@ public class MarioLuigi : MonoBehaviour {
 			Destroy (this.gameObject);
 			print ("Restart Game");
 		}
+		if (rb.transform.position.y <= -8.3) {
+			dead = true;
+			Destroy (this.gameObject);
+			print ("Restart Game");
+			scr_GameController.play_sound(scr_GameController.Sound.PLAYERDIED);
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) {
@@ -278,7 +284,7 @@ public class MarioLuigi : MonoBehaviour {
 			return;
 
 		colliders++;
-		//Debug.Log ("i am the bone of my peru");
+
 		Vector2 collPos = coll.gameObject.transform.position;
 		Vector2 rbPos = rb.position;
 		Debug.Log (rbPos);
@@ -289,9 +295,9 @@ public class MarioLuigi : MonoBehaviour {
 
 		if (coll.gameObject.tag == "coin")
 		{
+			Destroy (coll.gameObject);
 			Debug.Log ("Colided with coin!");
 			gC.add_coin();
-			Destroy (coll.gameObject);
 		}
 
 		if (coll.gameObject.tag == "goomba") {
@@ -456,6 +462,10 @@ public class MarioLuigi : MonoBehaviour {
 				}
 			}
 		}
+
+		if (coll.gameObject.tag == "platform") {
+			onPlatform = true;
+		}
 		/*
 		foreach (ContactPoint2D hitPos in coll.contacts)
 		{
@@ -481,6 +491,10 @@ public class MarioLuigi : MonoBehaviour {
 			return;
 
 		colliders--;
+
+		if (coll.gameObject.tag == "platform") {
+			onPlatform = false;
+		}
 
 		//if (coll.gameObject.tag == "block1" || coll.gameObject.tag == "pipe" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "floor")
 		{

@@ -25,6 +25,7 @@ TagManager:
   - bowser
   - pipeindown
   - pipeinleft
+  - platform
   layers:
   - Default
   - TransparentFX
