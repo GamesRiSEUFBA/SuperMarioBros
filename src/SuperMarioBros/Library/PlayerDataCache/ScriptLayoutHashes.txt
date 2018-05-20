@@ -1,11 +1,12 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/Victor/Documents/Universidade/UFBA/GAMES/Mario/Mario.exe
+C:/Users/samia/Desktop/Desktop.exe
 SceneListBegin?
 Assets/Scenes/Menu.unity
+Assets/Scenes/Map1-1.unity
 Assets/Scenes/Map1-2.unity
-Assets/Scenes/Map1-4.unity
 Assets/Scenes/Map1-2-Pipe.unity
+Assets/Scenes/Map1-4.unity
 SceneListEnd?
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.PartBrick
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
@@ -144,7 +145,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.FireUpgrade
 cc200c24d6be3cce12cab9949f636d1c Assembly-CSharp.dll:.MarioLuigi
-5d0ee422ddc3d74b2091034848975e64 Assembly-CSharp.dll:.scr_GameController
+194a7761846883264f0b48bc71285c0d Assembly-CSharp.dll:.scr_GameController
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.GamePhysics
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 f02726adeff0a3ec5905565234b372da UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
@@ -164,3 +165,4 @@ c7805a513ad81c4ec00969e6362024c4 Assembly-CSharp.dll:.CameraScript
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Goomba
 1311a4ca0e7ffccc36b7cd02341b4a51 Assembly-CSharp.dll:.Pipe
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ControleMenu
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.FireMario
