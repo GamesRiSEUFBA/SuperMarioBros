@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class scr_GameController : MonoBehaviour {
 
@@ -35,17 +36,25 @@ public class scr_GameController : MonoBehaviour {
 
 	public int lives = 3;
 	public int score = 0;
-	public int current_course = 1;
+	public static int current_course = 1;
 	public int current_world = 1;
 	public int coins = 0;
 
-	public int damage_time_counter = -1;
-	public int damage_time = 300;
+	public static int damage_time_counter = -1;
+	public static int damage_time = 300;
 	private MarioLuigi mario_object;
 	//public controller_object = FindObjectOfType<obj_GameController>();
 
 	public static AudioClip snd_stomp, snd_coin, snd_jump, snd_bowser_fireball, snd_1up, snd_powerup, snd_powerdown, snd_dead;
 	static AudioSource audio_src;
+
+	public int getLives() {
+		return lives;
+	}
+
+	public void setLives(int lives) {
+		lives = lives;
+	}
 
 	public void mario_switch_state(MarioState state_switching_to)
 	{
@@ -62,19 +71,8 @@ public class scr_GameController : MonoBehaviour {
 				case MarioState.SMALL:
 				{
 					Debug.Log ("Mario must die!");
-	        mario_object.KillMario();
-					lives --;
-
-					if (lives <= 0)
-					{
-						Debug.Log ("Game Over!");
-						game_over();
-					}
-					else
-					{
-						restart_course();
-						Debug.Log ("Course must restart!");
-					}
+					lives--;
+	        		mario_object.KillMario();
 					//var mario_object = FindObjectOfType<player>();
 					//mario_object.KillMario();
 				}
@@ -190,12 +188,16 @@ public class scr_GameController : MonoBehaviour {
 
 	public void game_over ()
 	{
-		//do game over thing
+		SceneManager.LoadScene (1, LoadSceneMode.Single);
+		lives = 3;
+		current_course = 1;
+		damage_time_counter = -1;
+		damage_time = 300;
 	}
 
 	public void restart_course ()
 	{
-		//restart current course
+		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
 	}
 
 	public void add_coin ()

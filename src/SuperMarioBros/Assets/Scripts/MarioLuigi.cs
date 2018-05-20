@@ -273,9 +273,19 @@ public class MarioLuigi : MonoBehaviour {
 		}
 		if (rb.transform.position.y <= -8.3) {
 			dead = true;
-			Destroy (this.gameObject);
 			print ("Restart Game");
 			scr_GameController.play_sound(scr_GameController.Sound.PLAYERDIED);
+
+			if (gC.lives <= 0 && rb.transform.position.y <= -8.3f)
+			{
+				Debug.Log ("Game Over!");
+				gC.game_over();
+			}
+			else if (gC.lives > 0 && rb.transform.position.y <= -8.3f)
+			{
+				gC.restart_course();
+				Debug.Log ("Course must restart!");
+			}
 		}
 	}
 
