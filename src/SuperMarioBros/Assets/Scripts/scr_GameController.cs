@@ -40,6 +40,8 @@ public class scr_GameController : MonoBehaviour {
 	public int current_world = 1;
 	public int coins = 0;
 
+	public int death_counter = -1;
+
 	public static int damage_time_counter = -1;
 	public static int damage_time = 300;
 	private MarioLuigi mario_object;
@@ -184,6 +186,13 @@ public class scr_GameController : MonoBehaviour {
 				damage_time_counter = -1;
 			}
 		}
+
+		if (death_counter > 0)
+		{
+			death_counter--;
+			if (death_counter == 0)
+				restart_course();
+		}
 	}
 
 	public void game_over ()
@@ -197,7 +206,12 @@ public class scr_GameController : MonoBehaviour {
 
 	public void restart_course ()
 	{
+		death_counter = -1;
+		damage_time_counter = -1;
+		mario_object.dead = false;
+		mario_state = MarioState.SMALL;
 		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+		mario_object.Start();
 	}
 
 	public void add_coin ()

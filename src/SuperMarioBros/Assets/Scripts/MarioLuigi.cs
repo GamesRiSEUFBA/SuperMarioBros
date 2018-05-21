@@ -33,7 +33,7 @@ public class MarioLuigi : MonoBehaviour {
 
 	private scr_GameController gC;
 
-	void Start () {
+	public void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		box = GetComponent<BoxCollider2D> ();
 		anim = GetComponent<Animator> ();
@@ -80,6 +80,11 @@ public class MarioLuigi : MonoBehaviour {
 		else
 		{
 			spd_max = 0.1f;
+		}
+
+		if (Input.GetKeyDown (KeyCode.X))
+		{
+			//Fireball code goes here
 		}
 
 		if (Input.GetKeyDown (KeyCode.LeftArrow)) {
@@ -272,9 +277,10 @@ public class MarioLuigi : MonoBehaviour {
 			print ("Restart Game");
 		}
 		if (rb.transform.position.y <= -8.3) {
+			if (dead == false)
+				scr_GameController.play_sound(scr_GameController.Sound.PLAYERDIED);
 			dead = true;
 			print ("Restart Game");
-			scr_GameController.play_sound(scr_GameController.Sound.PLAYERDIED);
 
 			if (gC.lives <= 0 && rb.transform.position.y <= -8.3f)
 			{
@@ -283,7 +289,8 @@ public class MarioLuigi : MonoBehaviour {
 			}
 			else if (gC.lives > 0 && rb.transform.position.y <= -8.3f)
 			{
-				gC.restart_course();
+				//gC.restart_course();
+				gC.death_counter = 150;
 				Debug.Log ("Course must restart!");
 			}
 		}
@@ -291,7 +298,10 @@ public class MarioLuigi : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (dead)
+		{
+			Debug.Log ("I'm dead, I can't colide!");
 			return;
+		}
 
 		colliders++;
 
