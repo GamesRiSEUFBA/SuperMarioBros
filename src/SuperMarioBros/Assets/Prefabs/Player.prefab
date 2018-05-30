@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 95191847349026802}
   - component: {fileID: 212064442276062312}
   - component: {fileID: 61101281997829486}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: player
   m_Icon: {fileID: 0}
@@ -107,6 +107,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114537550581739456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,6 +132,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   dead: 0
+  outPosition2: {x: 0, y: 0}
+  leavingPipe: 0
   colliders: 0
   mario_object: {fileID: 0}
 --- !u!212 &212064442276062312
@@ -146,6 +149,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
