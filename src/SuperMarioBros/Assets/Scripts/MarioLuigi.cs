@@ -40,6 +40,7 @@ public class MarioLuigi : MonoBehaviour {
 		sprite = GetComponent<SpriteRenderer> ();
 
 		gC = GameObject.Find("global_controller").GetComponent<scr_GameController>();
+		gC.mario_object = GameObject.Find("Player").GetComponent<MarioLuigi>();
 	}
 
 	public int getSizeMario() {
