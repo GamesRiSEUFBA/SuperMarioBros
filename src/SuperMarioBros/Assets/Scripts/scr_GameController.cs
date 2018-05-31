@@ -44,7 +44,7 @@ public class scr_GameController : MonoBehaviour {
 
 	public static int damage_time_counter = -1;
 	public static int damage_time = 300;
-	private MarioLuigi mario_object;
+	public MarioLuigi mario_object;
 	//public controller_object = FindObjectOfType<obj_GameController>();
 
 	public static AudioClip snd_stomp, snd_coin, snd_jump, snd_bowser_fireball, snd_1up, snd_powerup, snd_powerdown, snd_dead;
