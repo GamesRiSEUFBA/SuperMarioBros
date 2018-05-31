@@ -34,6 +34,8 @@ public class MarioLuigi : MonoBehaviour {
 	private scr_GameController gC;
 
 	public void Start () {
+		//GameObject.DontDestroyOnLoad(this.gameObject);
+
 		rb = GetComponent<Rigidbody2D> ();
 		box = GetComponent<BoxCollider2D> ();
 		anim = GetComponent<Animator> ();

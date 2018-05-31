@@ -17,6 +17,10 @@ public class CameraScript : MonoBehaviour {
 	}
 
 	void Update () {
+		if (Camera.main.transform.position.x == 16 && Camera.main.transform.position.y == -32) {
+			Camera.main.transform.position = new Vector2 (16, -32);
+		}
+
 		if (Camera.main.transform.position.x >= xEndMap) {
 			Camera.main.transform.position = new Vector3 (Camera.main.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
 		}

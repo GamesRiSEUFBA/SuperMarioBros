@@ -32,6 +32,7 @@ public class Pipe : MonoBehaviour {
 			rbMario.velocity = new Vector2 (0, -1.5f);
 			if (rbMario.position.y <= posMario.y - 2 && !loaded) {
 				SceneManager.LoadScene (nextScene, LoadSceneMode.Additive);
+
 				loaded = true;
 				onPipeDown = false;
 				onPipeLeft = false;
@@ -43,6 +44,7 @@ public class Pipe : MonoBehaviour {
 			rbMario.velocity = new Vector2 (1.5f, 0);
 			if (rbMario.position.x >= posMario.x + 10 && !loaded) {
 				SceneManager.UnloadSceneAsync (actualScene);
+
 				rbMario.transform.position = outPosition;
 				GameObject.Find ("Player").GetComponent<MarioLuigi> ().outPosition2 = outPosition2;
 				GameObject.Find ("Player").GetComponent<MarioLuigi> ().leavingPipe = true;
