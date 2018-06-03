@@ -318,7 +318,6 @@ public class MarioLuigi : MonoBehaviour {
 
 		if (coll.gameObject.tag == "coin")
 		{
-			Physics2D.IgnoreCollision (coll.collider, coll.otherCollider);
 			Destroy (coll.gameObject);
 			Debug.Log ("Colided with coin!");
 			gC.add_coin();
