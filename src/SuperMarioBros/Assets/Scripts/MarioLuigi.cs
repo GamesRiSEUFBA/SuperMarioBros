@@ -423,6 +423,13 @@ public class MarioLuigi : MonoBehaviour {
 			scr_GameController.play_sound(scr_GameController.Sound.POWERUP);
 		}
 
+		if (coll.gameObject.tag == "life") {
+		Destroy (coll.gameObject);
+		if (gC.lives < 100)
+			gC.lives++;
+		scr_GameController.play_sound(scr_GameController.Sound.ONEUP);
+		}
+
 		//if (coll.gameObject.tag == "floor" || coll.gameObject.tag == "pipe" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "floor")
 		{
 			//rb.velocity = new Vector2 (rb.velocity.x, 0);

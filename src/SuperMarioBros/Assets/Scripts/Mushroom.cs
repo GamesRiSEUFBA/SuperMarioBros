@@ -21,7 +21,7 @@ public class Mushroom : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (rb.position.y >= initPos + 1.05 && !arising) {
-			velX = 2;
+			velX = 2.5f;
 			velY = 0;
 			rb.velocity = new Vector2 (2, 0);
 			rb.bodyType = RigidbodyType2D.Dynamic;
