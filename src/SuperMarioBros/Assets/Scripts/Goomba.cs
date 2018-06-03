@@ -69,15 +69,27 @@ public class Goomba : MonoBehaviour {
 	void OnCollisionStay2D(Collision2D coll) {
 		Vector2 collPos = coll.gameObject.transform.position;
 		Vector2 rbPos = rigidGoomba.position;
-		if (coll.gameObject.tag == "block1" || coll.gameObject.tag == "pipe" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "goomba") {
-			if (rbPos.y < collPos.y + 0.5 && rbPos.y > collPos.y - 0.5) {
+		//if (coll.gameObject.tag == "block1" || coll.gameObject.tag == "pipe" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "goomba") {
+			/*if (rbPos.y < collPos.y + 0.5 && rbPos.y > collPos.y - 0.5) {
 				if (coll.gameObject.transform.position.x > transGoomba.position.x)
 					velX = -Mathf.Abs (velX);
 				else
 					velX = Mathf.Abs (velX);
-			}
-		} else if (coll.gameObject.tag != "floor" && coll.gameObject.tag != "player") {
-			Physics2D.IgnoreCollision (coll.collider, coll.otherCollider);
+			}*/
+		/*} else if (coll.gameObject.tag != "floor" && coll.gameObject.tag != "player") {
+			//Physics2D.IgnoreCollision (coll.collider, coll.otherCollider);
+		}*/
+
+		foreach (ContactPoint2D hitPos in coll.contacts)
+		{
+			Debug.Log (hitPos.normal);
+
+			if (hitPos.normal.x > 0)
+				velX = Mathf.Abs (velX);
+
+
+			if (hitPos.normal.x < 0)
+				velX = -Mathf.Abs (velX);				
 		}
 	}
 }

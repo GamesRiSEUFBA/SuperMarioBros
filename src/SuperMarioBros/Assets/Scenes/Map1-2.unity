@@ -11049,6 +11049,16 @@ Prefab:
       propertyPath: m_AutoTiling
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 61101281997829486, guid: a075146a111725844a2cad1c1a94cb6d,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: 0.07304216
+      objectReference: {fileID: 0}
+    - target: {fileID: 61101281997829486, guid: a075146a111725844a2cad1c1a94cb6d,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.14608432
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a075146a111725844a2cad1c1a94cb6d, type: 2}
   m_IsPrefabParent: 0
@@ -20257,12 +20267,12 @@ Prefab:
     - target: {fileID: 61676792855867774, guid: 9135b76c356eec342bc42bbcf017a9d6,
         type: 2}
       propertyPath: m_Offset.x
-      value: 0
+      value: 0.01943029
       objectReference: {fileID: 0}
     - target: {fileID: 61676792855867774, guid: 9135b76c356eec342bc42bbcf017a9d6,
         type: 2}
       propertyPath: m_Size.x
-      value: 0.32
+      value: 0.2811394
       objectReference: {fileID: 0}
     - target: {fileID: 1695409489473338, guid: 9135b76c356eec342bc42bbcf017a9d6, type: 2}
       propertyPath: m_Name
