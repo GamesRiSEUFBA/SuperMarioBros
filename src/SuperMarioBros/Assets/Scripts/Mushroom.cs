@@ -9,13 +9,15 @@ public class Mushroom : MonoBehaviour {
 	private float initPos;
 	private float velX = 0, velY = 1;
 	private bool arising = false;
-
+	private scr_GameController gC;
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 
 		initPos = rb.position.y;
 		rb.velocity = new Vector2 (velX, velY);
+		gC = GameObject.Find("global_controller").GetComponent<scr_GameController>();
+		scr_GameController.play_sound(scr_GameController.Sound.SPROUT);
 	}
 
 	// Update is called once per frame

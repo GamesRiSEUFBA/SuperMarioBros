@@ -15,12 +15,12 @@ public class SurpriseBlock : MonoBehaviour {
 	private Vector2 initPos;
 	private int count = 0;
 	private bool locked = false;
-
+	private scr_GameController gC;
 	void Start () {
 		trans = GetComponent<Transform> ();
 		rb = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
-
+		gC = GameObject.Find("global_controller").GetComponent<scr_GameController>();
 		initPos = trans.position;
 
 		if (invisible) {
@@ -61,6 +61,7 @@ public class SurpriseBlock : MonoBehaviour {
 					anim.SetBool ("Invisible", false);
 				}
 				rb.velocity = new Vector2 (0, 6);
+				scr_GameController.play_sound(scr_GameController.Sound.BUMP);
 			}
 		}
 	}

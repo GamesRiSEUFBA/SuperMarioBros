@@ -26,7 +26,10 @@ public class scr_GameController : MonoBehaviour {
 		FIREBALL,
 		POWERUP,
 		POWERDOWN,
-		PLAYERDIED
+		PLAYERDIED,
+		BUMP,
+		SPROUT,
+		BRICKSHATTER
 	}
 
 
@@ -47,7 +50,8 @@ public class scr_GameController : MonoBehaviour {
 	public MarioLuigi mario_object;
 	//public controller_object = FindObjectOfType<obj_GameController>();
 
-	public static AudioClip snd_stomp, snd_coin, snd_jump, snd_bowser_fireball, snd_1up, snd_powerup, snd_powerdown, snd_dead;
+	public static AudioClip snd_stomp, snd_coin, snd_jump, snd_bowser_fireball, snd_1up, snd_powerup,
+	snd_powerdown, snd_dead, snd_bump, snd_sprout, snd_brickshatter;
 	static AudioSource audio_src;
 
 	public int getLives() {
@@ -125,7 +129,9 @@ public class scr_GameController : MonoBehaviour {
 		snd_powerup = Resources.Load<AudioClip> ("PowerUp");
 		snd_powerdown = Resources.Load<AudioClip> ("PowerDown");
 		snd_dead = Resources.Load<AudioClip> ("PlayerDead");
-		
+		snd_bump = Resources.Load<AudioClip> ("Bump");
+		snd_sprout = Resources.Load<AudioClip> ("Sprout");
+		snd_brickshatter = Resources.Load<AudioClip> ("BrickShatter");		
 		audio_src = GetComponent<AudioSource> ();
 
 	}
@@ -172,6 +178,21 @@ public class scr_GameController : MonoBehaviour {
 			case Sound.PLAYERDIED:
 				Debug.Log ("Played dead sound!");
 				audio_src.PlayOneShot (snd_dead);
+			break;
+
+			case Sound.BUMP:
+				Debug.Log ("Played bump sound!");
+				audio_src.PlayOneShot (snd_bump);
+			break;
+
+			case Sound.SPROUT:
+				Debug.Log ("Played sprout sound!");
+				audio_src.PlayOneShot (snd_sprout);
+			break;
+
+			case Sound.BRICKSHATTER:
+				Debug.Log ("Played brick shatter sound!");
+				audio_src.PlayOneShot (snd_brickshatter);
 			break;
 		}
 	}
