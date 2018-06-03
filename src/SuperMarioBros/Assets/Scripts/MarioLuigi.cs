@@ -426,7 +426,7 @@ public class MarioLuigi : MonoBehaviour {
 		//if (coll.gameObject.tag == "floor" || coll.gameObject.tag == "pipe" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "floor")
 		{
 			//rb.velocity = new Vector2 (rb.velocity.x, 0);
-
+			if (coll.gameObject.tag != "coin" && coll.gameObject.tag != "upgrade")
 			foreach (ContactPoint2D hitPos in coll.contacts)
 			{
 				Debug.Log (hitPos.normal);
