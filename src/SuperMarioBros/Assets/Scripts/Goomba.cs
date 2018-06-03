@@ -41,7 +41,7 @@ public class Goomba : MonoBehaviour {
 		rigidGoomba.velocity = new Vector2 (velX, rigidGoomba.velocity.y);
 	}
 
-	void Fall() {
+	public void Fall() {
 		if (velX < 0)
 			impulseX = -Mathf.Abs (impulseX);
 		else

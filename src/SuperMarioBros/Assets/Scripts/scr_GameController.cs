@@ -242,13 +242,21 @@ public class scr_GameController : MonoBehaviour {
 		//play sound here
 		if (coins >= 100)
 		{
-			lives++;
 			coins = 0;
-			play_sound(Sound.ONEUP);
+			add_life();
 		}
 		else
 		{
 			play_sound(Sound.COIN);
 		}
+	}
+
+	public void add_life ()
+	{
+		if (lives < 99)
+		{
+			lives++;
+		}
+		play_sound(Sound.ONEUP);
 	}
 }

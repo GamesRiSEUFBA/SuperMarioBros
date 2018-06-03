@@ -26,8 +26,9 @@ public class KoopaTroopaGreen : MonoBehaviour
 
 	private int time_counter = 0;
 	private int time_to_revive = 360;
-
+	private scr_GameController gC;
 	public KoopaState current_state = KoopaState.NORMAL;
+	private int combo_counter = 0;
 	//private int current_state = 0;
 
 	void Start () 
@@ -40,6 +41,7 @@ public class KoopaTroopaGreen : MonoBehaviour
 
 		velX = -Mathf.Abs(velX);
 		KoopaState current_state = KoopaState.NORMAL;
+		gC = GameObject.Find("global_controller").GetComponent<scr_GameController>();
 	}
 
 	void Update () 
@@ -60,7 +62,7 @@ public class KoopaTroopaGreen : MonoBehaviour
 			sprite.flipX = false;
 	}
 
-	void Fall() {
+	public void Fall() {
 		if (velX < 0)
 			impulseX = -Mathf.Abs (impulseX);
 		else
@@ -92,7 +94,7 @@ public class KoopaTroopaGreen : MonoBehaviour
 				time_counter = 0;
 				break;
 		}
-
+		combo_counter = 0;
 		current_state = state_switching_to;
 	}
 
@@ -105,6 +107,41 @@ public class KoopaTroopaGreen : MonoBehaviour
 	void OnCollisionStay2D(Collision2D coll) {
 		Vector2 collPos = coll.gameObject.transform.position;
 		Vector2 rbPos = rigidKoopaGreen.position;
+
+		if (current_state == KoopaState.SHELL_SLIDING)
+		{
+			if (coll.gameObject.tag == "goomba")
+			{
+				coll.gameObject.GetComponent<Goomba> ().Fall ();
+				add_combo();
+				Physics2D.IgnoreCollision (coll.collider, coll.otherCollider);
+			}
+
+			else if (coll.gameObject.tag == "KoopaTroopaGreen")
+			{
+				coll.gameObject.GetComponent<KoopaTroopaGreen> ().Fall ();
+				add_combo();
+				Physics2D.IgnoreCollision (coll.collider, coll.otherCollider);
+			}
+
+			else if (coll.gameObject.tag != "player")
+			foreach (ContactPoint2D hitPos in coll.contacts)
+			{
+				Debug.Log (hitPos.normal);
+
+				if (hitPos.normal.x > 0)
+				{
+					velX = Mathf.Abs (velX);
+					scr_GameController.play_sound(scr_GameController.Sound.BUMP);
+				}
+				else if (hitPos.normal.x < 0)
+				{
+					velX = -Mathf.Abs (velX);
+					scr_GameController.play_sound(scr_GameController.Sound.BUMP);				
+				}
+			}
+		}
+		else
 		if (coll.gameObject.tag == "block1" || coll.gameObject.tag == "pipe" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "goomba") {
 			if (rbPos.y < collPos.y + 0.5 && rbPos.y > collPos.y - 0.5) {
 				if (coll.gameObject.transform.position.x > transKoopaGreen.position.x) {
@@ -115,6 +152,45 @@ public class KoopaTroopaGreen : MonoBehaviour
 			}
 		} else if (coll.gameObject.tag != "floor" && coll.gameObject.tag != "player") {
 			Physics2D.IgnoreCollision (coll.collider, coll.otherCollider);
+		}
+	}
+
+	public void add_combo()
+	{
+		combo_counter++;
+		switch(combo_counter)
+		{
+			case 1:
+				gC.score += 200;
+				break;
+
+			case 2:
+				gC.score += 400;
+				break;
+
+			case 3:
+				gC.score += 800;
+				break;
+
+			case 4:
+				gC.score += 1000;
+				break;
+
+			case 5:
+				gC.score += 2000;
+				break;
+
+			case 6:
+				gC.score += 4000;
+				break;
+
+			case 7:
+				gC.score += 8000;
+				break;
+
+			default:
+				gC.add_life();
+				break;
 		}
 	}
 }
