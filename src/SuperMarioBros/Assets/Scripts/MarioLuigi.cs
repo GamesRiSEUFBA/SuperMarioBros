@@ -34,7 +34,7 @@ public class MarioLuigi : MonoBehaviour {
 	private scr_GameController gC;
 
 	public void Start () {
-		//GameObject.DontDestroyOnLoad(this.gameObject);
+		GameObject.DontDestroyOnLoad(this.gameObject);
 
 		rb = GetComponent<Rigidbody2D> ();
 		box = GetComponent<BoxCollider2D> ();
@@ -482,7 +482,7 @@ public class MarioLuigi : MonoBehaviour {
 			col_bottom = false;
 		}
 
-		if (coll.gameObject.tag.Contains ("pipe")) {
+		/*if (coll.gameObject.tag.Contains ("pipe")) {
 			coll.gameObject.GetComponent<BoxCollider2D> ().isTrigger = onPipe;
 			
 			if (coll.gameObject.tag.Contains ("pipein")) {
@@ -490,7 +490,7 @@ public class MarioLuigi : MonoBehaviour {
 					onPipe = true;
 				}
 			}
-		}
+		}*/
 
 		if (coll.gameObject.tag == "platform") {
 			onPlatform = true;

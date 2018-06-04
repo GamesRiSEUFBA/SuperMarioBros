@@ -65,6 +65,7 @@
      <Compile Include="Assets\Scripts\Mushroom.cs" />
      <Compile Include="Assets\Scripts\PartBrick.cs" />
      <Compile Include="Assets\Scripts\Pipe.cs" />
+     <Compile Include="Assets\Scripts\PipeLeft.cs" />
      <Compile Include="Assets\Scripts\Plant.cs" />
      <Compile Include="Assets\Scripts\Platform.cs" />
      <Compile Include="Assets\Scripts\Platform2.cs" />
@@ -74,11 +75,11 @@
      <Compile Include="Assets\Scripts\SurpriseBlock.cs" />
      <Compile Include="Assets\Scripts\Toad.cs" />
      <Compile Include="Assets\Scripts\ToadBag.cs" />
- <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/Victor/Documents/GitHub/SuperMarioBros/src/SuperMarioBros/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
- </Reference>
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/Victor/Documents/GitHub/SuperMarioBros/src/SuperMarioBros/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.PackageManagerUI.Editor">
+ <HintPath>C:/Users/Victor/Documents/GitHub/SuperMarioBros/src/SuperMarioBros/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

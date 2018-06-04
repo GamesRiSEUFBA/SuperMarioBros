@@ -36,7 +36,7 @@ public class Mushroom : MonoBehaviour {
 	void OnCollisionStay2D(Collision2D coll) {
 		Vector2 collPos = coll.gameObject.transform.position;
 		Vector2 rbPos = rb.position;
-		if (coll.gameObject.tag == "block1" || coll.gameObject.tag == "pipe" || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp") {
+		if (coll.gameObject.tag == "block1" || coll.gameObject.tag.Contains("pipe") || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp") {
 			if (rbPos.y < collPos.y + 0.5 && rbPos.y > collPos.y - 0.5) {
 				if (collPos.x > rb.position.x)
 					velX = -Mathf.Abs(velX);

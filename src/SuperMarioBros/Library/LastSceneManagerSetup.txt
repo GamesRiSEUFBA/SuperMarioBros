@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Map1-2-Pipe.unity
+- path: Assets/Scenes/Map1-2.unity
   isLoaded: 1
   isActive: 1

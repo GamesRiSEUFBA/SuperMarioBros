@@ -21,6 +21,9 @@ public class Pipe : MonoBehaviour {
 	public Vector2 outPosition;
 	public Vector2 outPosition2;
 
+	private Collider2D cPipe;
+	private Collider2D cMario;
+
 	void Start () {
 		animMario = GameObject.Find("Player").GetComponent<Animator>();
 		rbMario = GameObject.Find("Player").GetComponent<Rigidbody2D>();
@@ -30,8 +33,11 @@ public class Pipe : MonoBehaviour {
 	void Update () {
 		if (onPipeDown) {
 			rbMario.velocity = new Vector2 (0, -1.5f);
+
 			if (rbMario.position.y <= posMario.y - 2 && !loaded) {
 				SceneManager.LoadScene (nextScene, LoadSceneMode.Additive);
+				rbMario.transform.position = new Vector2(10, 120);
+				Physics2D.IgnoreCollision (cMario, cPipe, false);
 
 				loaded = true;
 				onPipeDown = false;
@@ -42,10 +48,12 @@ public class Pipe : MonoBehaviour {
 
 		if (onPipeLeft) {
 			rbMario.velocity = new Vector2 (1.5f, 0);
-			if (rbMario.position.x >= posMario.x + 10 && !loaded) {
+			if (rbMario.position.x >= posMario.x + 1 && !loaded) {
 				SceneManager.UnloadSceneAsync (actualScene);
+				Physics2D.IgnoreCollision (cMario, cPipe, false);
 
 				rbMario.transform.position = outPosition;
+
 				GameObject.Find ("Player").GetComponent<MarioLuigi> ().outPosition2 = outPosition2;
 				GameObject.Find ("Player").GetComponent<MarioLuigi> ().leavingPipe = true;
 				loaded = true;
@@ -55,6 +63,7 @@ public class Pipe : MonoBehaviour {
 			}
 		}
 
+
 	}
 
 	void OnCollisionStay2D(Collision2D coll) {
@@ -62,6 +71,9 @@ public class Pipe : MonoBehaviour {
 		Vector2 transPos = transPipe.position;
 
 		if (coll.gameObject.tag == "player") {
+			cPipe = coll.collider;
+			cMario = coll.otherCollider;
+
 			if (Input.GetKeyDown (KeyCode.DownArrow) && (collPos.x <= transPos.x + 0.2f && collPos.x >= transPos.x - 0.2f)) {
 				animMario.SetBool ("Pipe", true);
 				rbMario.velocity = new Vector2 (0, -2);
@@ -69,7 +81,7 @@ public class Pipe : MonoBehaviour {
 				loaded = false;
 				onPipeDown = true;
 				onPipeLeft = false;
-
+				Physics2D.IgnoreCollision (cMario, cPipe, true);
 			} 
 
 			if (Input.GetKeyDown (KeyCode.RightArrow) && collPos.y <= transPos.y + 0.2f) {
@@ -79,6 +91,7 @@ public class Pipe : MonoBehaviour {
 				loaded = false;
 				onPipeDown = false;
 				onPipeLeft = true;
+				Physics2D.IgnoreCollision (cMario, cPipe, true);
 			}
 		}
 	}
