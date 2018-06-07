@@ -8,7 +8,7 @@ public class MarioLuigi : MonoBehaviour {
 	private Rigidbody2D rb;
 	private BoxCollider2D box;
 	public Animator anim;
-	private SpriteRenderer sprite;
+	public SpriteRenderer sprite;
 	private bool rightKeyPressed = false, leftKeyPressed = false, jumpPressed = false, firePressed = false, turnTime = false, onFloor = false, onAxe = false, onPipe = false, onPlatform = false;
 	public bool dead = false;
 	private float maxVel = 6;

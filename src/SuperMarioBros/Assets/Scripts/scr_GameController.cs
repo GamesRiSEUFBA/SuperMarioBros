@@ -209,10 +209,12 @@ public class scr_GameController : MonoBehaviour {
 	void Update () {
 		if (damage_time_counter > 0)
 		{
+			mario_object.sprite.color = new Color(1f,1f,1f,.65f);
 			damage_time_counter--;
 			if (damage_time_counter <= 0)
 			{
 				damage_time_counter = -1;
+				mario_object.sprite.color = new Color(1f,1f,1f,1f);
 			}
 		}
 
