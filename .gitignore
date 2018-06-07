@@ -1,1 +1,3 @@
-src/SuperMarioBros/Library/metadata/
+src/SuperMarioBros/Library/metadata/*
+src/SuperMarioBros/Temp/*
+*.meta
