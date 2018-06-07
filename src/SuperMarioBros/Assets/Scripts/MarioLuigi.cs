@@ -407,12 +407,16 @@ public class MarioLuigi : MonoBehaviour {
 		}
 
 		if (coll.gameObject.tag == "upgrade") {
-			anim.SetInteger ("MarioSize", 1);
 			scr_GameController.play_sound(scr_GameController.Sound.POWERUP);
 			Destroy (coll.gameObject);
-			box.size = new Vector2 (0.14f, 0.3f);
-			box.offset = new Vector2 (0, 0.15f);
-			gC.mario_switch_state(scr_GameController.MarioState.BIG);
+
+			if (gC.mario_state == scr_GameController.MarioState.SMALL)
+			{
+				anim.SetInteger ("MarioSize", 1);
+				box.size = new Vector2 (0.14f, 0.3f);
+				box.offset = new Vector2 (0, 0.15f);
+				gC.mario_switch_state(scr_GameController.MarioState.BIG);
+			}
 			//controller_object.mario_switch_state(scr_GameController.MarioState.BIG);
 		}
 
