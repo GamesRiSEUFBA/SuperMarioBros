@@ -17,7 +17,7 @@ public class MarioLuigi : MonoBehaviour {
 	private bool col_dir = false;
 	private float spd_max = 0.1f;
 	private float accel = 0.01f;
-	private bool dir_right = true;
+	public bool dir_right = true;
 	private bool col_right = false;
 	private bool col_left = false;
 	private bool col_up = false;
@@ -26,6 +26,7 @@ public class MarioLuigi : MonoBehaviour {
 	private int star_combo_counter = 0;
 	public Vector2 outPosition2;
 	public bool leavingPipe = false;
+	public GameObject FireMario;
 
 	public int colliders = 0;
 	public MarioLuigi mario_object;
@@ -43,6 +44,7 @@ public class MarioLuigi : MonoBehaviour {
 
 		gC = GameObject.Find("global_controller").GetComponent<scr_GameController>();
 		gC.mario_object = GameObject.Find("Player").GetComponent<MarioLuigi>();
+		gC.fire_count = 0;
 	}
 
 	public int getSizeMario() {
@@ -88,6 +90,13 @@ public class MarioLuigi : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.X))
 		{
 			//Fireball code goes here
+			if (gC.fire_count < 2 && gC.mario_state == scr_GameController.MarioState.FIRE)
+			{
+				gC.fire_count++;
+				scr_GameController.play_sound(scr_GameController.Sound.FIREBALL);
+				Instantiate(FireMario, transform.position, transform.rotation);
+				Debug.Log ("Mario threw a fireball!");
+			}
 		}
 
 		if (Input.GetKeyDown (KeyCode.LeftArrow)) {
@@ -342,6 +351,9 @@ public class MarioLuigi : MonoBehaviour {
 			}
 		}
 
+		if (coll.gameObject.tag == "DangerousFire")
+			gC.damage_mario();
+
 		if (coll.gameObject.tag == "KoopaTroopa")
 		{
 			var other_koopa = coll.gameObject.GetComponent<KoopaTroopaGreen> ();
@@ -438,9 +450,9 @@ public class MarioLuigi : MonoBehaviour {
 			if (coll.gameObject.tag != "coin" && coll.gameObject.tag != "upgrade")
 			foreach (ContactPoint2D hitPos in coll.contacts)
 			{
-				Debug.Log (hitPos.normal);
+				//Debug.Log (hitPos.normal);
 
-				if (hitPos.normal.y < 0)
+				if (hitPos.normal.y > 0)
 					col_bottom = true;
 				else if (hitPos.normal.y > 0)
 				{

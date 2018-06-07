@@ -132,8 +132,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   dead: 0
+  dir_right: 1
   outPosition2: {x: 0, y: 0}
   leavingPipe: 0
+  FireMario: {fileID: 1962625218185404, guid: 073260635e9ad264e9aba1c04d776bcc, type: 2}
   colliders: 0
   mario_object: {fileID: 0}
 --- !u!212 &212064442276062312

@@ -42,7 +42,7 @@ public class scr_GameController : MonoBehaviour {
 	public static int current_course = 1;
 	public int current_world = 1;
 	public int coins = 0;
-
+	public int fire_count = 0;
 	public int death_counter = -1;
 
 	public static int damage_time_counter = -1;
@@ -51,7 +51,7 @@ public class scr_GameController : MonoBehaviour {
 	//public controller_object = FindObjectOfType<obj_GameController>();
 
 	public static AudioClip snd_stomp, snd_coin, snd_jump, snd_bowser_fireball, snd_1up, snd_powerup,
-	snd_powerdown, snd_dead, snd_bump, snd_sprout, snd_brickshatter;
+	snd_powerdown, snd_dead, snd_bump, snd_sprout, snd_brickshatter, snd_mario_fireball;
 	static AudioSource audio_src;
 
 	public int getLives() {
@@ -97,6 +97,8 @@ public class scr_GameController : MonoBehaviour {
 				case MarioState.FIRE:
 				{
 					mario_switch_state(MarioState.BIG);
+					mario_object.anim.SetInteger ("MarioSize", 1);
+					Debug.Log ("Fire Mario became Big Mario!");
 					damage_time_counter = damage_time;
 					play_sound(Sound.POWERDOWN);
 				}
@@ -125,6 +127,7 @@ public class scr_GameController : MonoBehaviour {
 		snd_stomp = Resources.Load<AudioClip> ("Stomp");
 		snd_1up = Resources.Load<AudioClip> ("1up");
 		snd_bowser_fireball = Resources.Load<AudioClip> ("Bowser_Fireball");
+		snd_mario_fireball = Resources.Load<AudioClip> ("Fireball");
 		snd_jump = Resources.Load<AudioClip> ("Jump");
 		snd_powerup = Resources.Load<AudioClip> ("PowerUp");
 		snd_powerdown = Resources.Load<AudioClip> ("PowerDown");
@@ -158,6 +161,11 @@ public class scr_GameController : MonoBehaviour {
 			case Sound.BOWSERFIREBALL:
 				Debug.Log ("Played Bowser's fireball sound!");
 				audio_src.PlayOneShot (snd_bowser_fireball);
+			break;
+
+			case Sound.FIREBALL:
+				Debug.Log ("Played Mario's fireball sound!");
+				audio_src.PlayOneShot (snd_mario_fireball);
 			break;
 
 			case Sound.COIN:

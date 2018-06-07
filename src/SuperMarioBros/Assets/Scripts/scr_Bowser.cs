@@ -20,12 +20,15 @@ public class scr_Bowser : MonoBehaviour {
 	private bool dead = false;
 	private int counter_fireball = 0;
 	private int counter_fireball_max = 200;
-
+	private scr_GameController gC;
 	public GameObject Fireball;
+
+	public int hp = 8;
 
 	// Use this for initialization
 	void Start () {
 		rigidBowser = GetComponent<Rigidbody2D>();
+		gC = GameObject.Find("global_controller").GetComponent<scr_GameController>();
 		velX = -Mathf.Abs(velX);
 	}
 	
@@ -74,6 +77,21 @@ public class scr_Bowser : MonoBehaviour {
 		{
 			dead = true;
 			Destroy (this.gameObject);
+		}
+
+		if (coll.gameObject.tag == "MariosFireball")
+		{
+			//Physics2D.IgnoreCollision (coll.collider, coll.otherCollider);
+			hp--;
+			Debug.Log ("Bowser HP was reduced!");
+			if (hp <= 0)
+			{
+				dead = true;
+				Debug.Log ("Bowser HP hit 0, it must die!");
+				Destroy (this.gameObject);
+			}
+			gC.fire_count--;
+			Destroy (coll.gameObject);
 		}
 	}
 }
