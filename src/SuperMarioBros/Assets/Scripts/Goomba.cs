@@ -8,7 +8,7 @@ public class Goomba : MonoBehaviour {
 	private Transform transGoomba;
 	private Animator animGoomba;
 	private BoxCollider2D boxGoomba;
-	//private SpriteRenderer spriteGoomba;
+	private SpriteRenderer spriteGoomba;
 
 	private bool stomped = false;
 	private bool fall = false;
@@ -16,13 +16,14 @@ public class Goomba : MonoBehaviour {
 	private float velX = 3;
 	private float impulseY = 8;
 	private float impulseX = 4;
+	private float sprite_alpha = 1f;
 
 	void Start () {
 		rigidGoomba = GetComponent<Rigidbody2D>();
 		transGoomba = GetComponent<Transform>();
 		animGoomba = GetComponent<Animator>();
 		boxGoomba = GetComponent<BoxCollider2D> ();
-		//spriteGoomba = GetComponent<SpriteRenderer> ();
+		spriteGoomba = GetComponent<SpriteRenderer> ();
 
 		velX = -Mathf.Abs(velX);
 	}
@@ -31,7 +32,23 @@ public class Goomba : MonoBehaviour {
 		//if (Input.GetMouseButtonDown(0)) {
 		//	Fall ();
 		//}
-		if (animGoomba.GetCurrentAnimatorStateInfo (0).normalizedTime > 1 &&
+
+		if (animGoomba.GetCurrentAnimatorStateInfo (0).normalizedTime > 0.5f &&
+			animGoomba.GetCurrentAnimatorStateInfo (0).IsName("GoombaDead") 
+			&& !animGoomba.IsInTransition (0) && stomped) {
+			sprite_alpha -= 0.05f;
+			spriteGoomba.color = new Color (1f, 1f, 1f, sprite_alpha);
+		}
+
+		if (animGoomba.GetCurrentAnimatorStateInfo (0).normalizedTime > 0.3f &&
+			animGoomba.GetCurrentAnimatorStateInfo (0).IsName("GoombaFall") 
+			&& !animGoomba.IsInTransition (0) && fall) {
+			sprite_alpha -= 0.01f;
+			spriteGoomba.color = new Color (1f, 1f, 1f, sprite_alpha);
+		}
+
+
+		if (animGoomba.GetCurrentAnimatorStateInfo (0).normalizedTime > 1.5f &&
 			animGoomba.GetCurrentAnimatorStateInfo (0).IsName("GoombaDead") 
 			&& !animGoomba.IsInTransition (0) && stomped) {
 				
