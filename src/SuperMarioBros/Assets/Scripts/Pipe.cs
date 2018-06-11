@@ -12,12 +12,11 @@ public class Pipe : MonoBehaviour {
 
 	private bool loaded = false;
 
-	public bool onPipeDown = false;
-	public bool onPipeLeft = false;
+	private bool onPipeDown = false;
+	private bool onPipeLeft = false;
 
 	public int nextScene;
 	public int actualScene;
-	public Vector2 triggerPos;
 	public Vector2 outPosition;
 	public Vector2 outPosition2;
 

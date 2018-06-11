@@ -60,12 +60,14 @@
      <Compile Include="Assets\Scripts\GamePhysics.cs" />
      <Compile Include="Assets\Scripts\GetCoin.cs" />
      <Compile Include="Assets\Scripts\Goomba.cs" />
+     <Compile Include="Assets\Scripts\HUD.cs" />
      <Compile Include="Assets\Scripts\KoopaTroopaGreen.cs" />
      <Compile Include="Assets\Scripts\MarioLuigi.cs" />
      <Compile Include="Assets\Scripts\Mushroom.cs" />
      <Compile Include="Assets\Scripts\PartBrick.cs" />
      <Compile Include="Assets\Scripts\Pipe.cs" />
      <Compile Include="Assets\Scripts\PipeLeft.cs" />
+     <Compile Include="Assets\Scripts\PipeNext.cs" />
      <Compile Include="Assets\Scripts\Plant.cs" />
      <Compile Include="Assets\Scripts\Platform.cs" />
      <Compile Include="Assets\Scripts\Platform2.cs" />
