@@ -54,6 +54,10 @@ public class scr_GameController : MonoBehaviour {
 	snd_powerdown, snd_dead, snd_bump, snd_sprout, snd_brickshatter, snd_mario_fireball;
 	static AudioSource audio_src;
 
+
+	//pipes
+	public bool pipe_course2 = false;
+
 	public int getLives() {
 		return lives;
 	}
@@ -67,6 +71,29 @@ public class scr_GameController : MonoBehaviour {
 		mario_state = state_switching_to;
 	}
 
+	public void mario_update_according_to_state()
+	{
+		Debug.Log ("Checking Mario's current state...");
+		switch (mario_state)
+		{
+			case MarioState.BIG:
+			{
+				mario_object.anim.SetInteger ("MarioSize", 1);
+				mario_object.box.size = new Vector2 (0.14f, 0.3f);
+				mario_object.box.offset = new Vector2 (0, 0.15f);
+			}
+			break;
+
+			case MarioState.FIRE:
+			{
+				mario_object.anim.SetInteger ("MarioSize", 1);
+				mario_object.box.size = new Vector2 (0.14f, 0.3f);
+				mario_object.box.offset = new Vector2 (0, 0.15f);
+			}
+			break;
+		}
+	}	
+
 	public void damage_mario()
 	{
 		if (damage_time_counter == -1)
@@ -77,7 +104,7 @@ public class scr_GameController : MonoBehaviour {
 				case MarioState.SMALL:
 				{
 					Debug.Log ("Mario must die!");
-					lives--;
+					//lives--;
 	        		mario_object.KillMario();
 					//var mario_object = FindObjectOfType<player>();
 					//mario_object.KillMario();
@@ -118,7 +145,7 @@ public class scr_GameController : MonoBehaviour {
 		}
 	}
 	// Use this for initialization
-	void Start () {
+	public void Start () {
 		DontDestroyOnLoad(gameObject);
 		Debug.Log ("I exist!");
 		mario_object = GameObject.Find("Player").GetComponent<MarioLuigi>();
@@ -228,11 +255,14 @@ public class scr_GameController : MonoBehaviour {
 
 	public void game_over ()
 	{
-		SceneManager.LoadScene (1, LoadSceneMode.Single);
+		SceneManager.LoadScene (0, LoadSceneMode.Single);
+		Destroy (this.gameObject);
+		/*
 		lives = 3;
 		current_course = 1;
 		damage_time_counter = -1;
 		damage_time = 300;
+		*/
 	}
 
 	public void restart_course ()
@@ -241,6 +271,7 @@ public class scr_GameController : MonoBehaviour {
 		damage_time_counter = -1;
 		mario_object.dead = false;
 		mario_state = MarioState.SMALL;
+		lives--;
 		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
 		mario_object.Start();
 	}

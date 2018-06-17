@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MarioLuigi : MonoBehaviour {
 
-	private Rigidbody2D rb;
-	private BoxCollider2D box;
+	public Rigidbody2D rb;
+	public BoxCollider2D box;
 	public Animator anim;
 	public SpriteRenderer sprite;
 	private bool rightKeyPressed = false, leftKeyPressed = false, jumpPressed = false, firePressed = false, turnTime = false, onFloor = false, onAxe = false, onPipe = false, onPlatform = false;
@@ -35,7 +35,7 @@ public class MarioLuigi : MonoBehaviour {
 	private scr_GameController gC;
 
 	public void Start () {
-		GameObject.DontDestroyOnLoad(this.gameObject);
+		//GameObject.DontDestroyOnLoad(this.gameObject);
 
 		rb = GetComponent<Rigidbody2D> ();
 		box = GetComponent<BoxCollider2D> ();
@@ -45,7 +45,23 @@ public class MarioLuigi : MonoBehaviour {
 		gC = GameObject.Find("global_controller").GetComponent<scr_GameController>();
 		gC.mario_object = GameObject.Find("Player").GetComponent<MarioLuigi>();
 		gC.fire_count = 0;
+		gC.Start();
+
+		if (gC.pipe_course2 == true)
+		{
+			transform.position = new Vector2(98.88f, -4.1f);//-2.88f);
+			leavingPipe = true;
+			anim.SetBool ("Walking", false);
+			gC.pipe_course2 = false;
+			outPosition2 = new Vector2(98.88f, -2.88f);//-2.88f)
+			scr_GameController.play_sound(scr_GameController.Sound.POWERDOWN);
+		}
 	}
+
+	/*void Awake ()
+	{
+		gC.mario_object = GameObject.Find("Player").GetComponent<MarioLuigi>();
+	}*/
 
 	public int getSizeMario() {
 		return anim.GetInteger ("MarioSize");
@@ -325,14 +341,6 @@ public class MarioLuigi : MonoBehaviour {
 			Destroy (coll.gameObject);
 		}
 
-		if (coll.gameObject.tag == "coin")
-		{
-			Physics2D.IgnoreCollision (coll.collider, coll.otherCollider);
-			Destroy (coll.gameObject);
-			Debug.Log ("Colided with coin!");
-			gC.add_coin();
-		}
-
 		if (coll.gameObject.tag == "goomba") {
 			Debug.Log ("Colided with Goomba!");
 			if (rbPos.y >= collPos.y + 0.5) {
@@ -483,6 +491,16 @@ public class MarioLuigi : MonoBehaviour {
 			}
 		}
 
+	}
+
+	void OnTriggerStay2D(Collider2D coll)
+	{
+		if (coll.gameObject.tag == "coin")
+		{
+			Destroy (coll.gameObject);
+			Debug.Log ("Colided with coin!");
+			gC.add_coin();
+		}
 	}
 
 	void OnCollisionStay2D(Collision2D coll) {

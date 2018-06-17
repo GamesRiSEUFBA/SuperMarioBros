@@ -4,11 +4,17 @@ using UnityEngine;
 using System.Collections;
 
 public class ControleMenu : MonoBehaviour {
-	
-
+public int controller_count = 0;	
+public GameObject GameController;
 	void OnGUI(){
 		if(Input.GetKeyDown(KeyCode.Space)){
-			Application.LoadLevel ("Map1-2");
+			if (controller_count == 0)
+			{
+				GameObject controller = Instantiate(GameController, transform.position, transform.rotation);
+				controller.name = "global_controller";
+				controller_count++;
+				Application.LoadLevel ("Map1-1");
+			}
 		}
 	}
 }

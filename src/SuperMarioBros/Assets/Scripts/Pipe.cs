@@ -23,10 +23,13 @@ public class Pipe : MonoBehaviour {
 	private Collider2D cPipe;
 	private Collider2D cMario;
 
+	private scr_GameController gC;
+
 	void Start () {
 		animMario = GameObject.Find("Player").GetComponent<Animator>();
 		rbMario = GameObject.Find("Player").GetComponent<Rigidbody2D>();
 		transPipe = GetComponent<Transform> ();
+		gC = GameObject.Find("global_controller").GetComponent<scr_GameController>();
 	}
 
 	void Update () {
@@ -34,7 +37,7 @@ public class Pipe : MonoBehaviour {
 			rbMario.velocity = new Vector2 (0, -1.5f);
 
 			if (rbMario.position.y <= posMario.y - 2 && !loaded) {
-				SceneManager.LoadScene (nextScene, LoadSceneMode.Additive);
+				SceneManager.LoadScene (nextScene, LoadSceneMode.Single);
 				rbMario.transform.position = new Vector2(10, 120);
 				Physics2D.IgnoreCollision (cMario, cPipe, false);
 
@@ -48,8 +51,23 @@ public class Pipe : MonoBehaviour {
 		if (onPipeLeft) {
 			rbMario.velocity = new Vector2 (1.5f, 0);
 			if (rbMario.position.x >= posMario.x + 1 && !loaded) {
-				SceneManager.UnloadSceneAsync (actualScene);
-				Physics2D.IgnoreCollision (cMario, cPipe, false);
+
+				Scene currentScene = SceneManager.GetActiveScene ();
+				int buildIndex = currentScene.buildIndex;
+
+				switch(buildIndex)
+				{
+					case 3:
+						gC.pipe_course2 = true;
+						SceneManager.LoadScene (2, LoadSceneMode.Single);
+						break;
+
+					case 2:
+						SceneManager.LoadScene (4, LoadSceneMode.Single);
+						break;
+				}
+				//SceneManager.UnloadSceneAsync (actualScene);
+				/*Physics2D.IgnoreCollision (cMario, cPipe, false);
 
 				rbMario.transform.position = outPosition;
 
@@ -58,7 +76,7 @@ public class Pipe : MonoBehaviour {
 				loaded = true;
 				onPipeDown = false;
 				onPipeLeft = false;
-				animMario.SetBool ("Walking", false);
+				animMario.SetBool ("Walking", false);*/
 			}
 		}
 
@@ -81,6 +99,7 @@ public class Pipe : MonoBehaviour {
 				onPipeDown = true;
 				onPipeLeft = false;
 				Physics2D.IgnoreCollision (cMario, cPipe, true);
+				scr_GameController.play_sound(scr_GameController.Sound.POWERDOWN);
 			} 
 
 			if (Input.GetKeyDown (KeyCode.RightArrow) && collPos.y <= transPos.y + 0.2f) {
@@ -91,6 +110,7 @@ public class Pipe : MonoBehaviour {
 				onPipeDown = false;
 				onPipeLeft = true;
 				Physics2D.IgnoreCollision (cMario, cPipe, true);
+				scr_GameController.play_sound(scr_GameController.Sound.POWERDOWN);
 			}
 		}
 	}
