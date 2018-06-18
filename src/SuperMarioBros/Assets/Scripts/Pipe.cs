@@ -23,8 +23,6 @@ public class Pipe : MonoBehaviour {
 	private Collider2D cPipe;
 	private Collider2D cMario;
 
-	public int my_dir = 0;
-
 	private scr_GameController gC;
 
 	void Start () {
@@ -104,7 +102,7 @@ public class Pipe : MonoBehaviour {
 				scr_GameController.play_sound(scr_GameController.Sound.POWERDOWN);
 			} 
 
-			if (Input.GetKeyDown (KeyCode.RightArrow) && collPos.y <= transPos.y + 0.2f && my_dir == 0) {
+			if (Input.GetKeyDown (KeyCode.RightArrow) && collPos.y <= transPos.y + 0.2f) {
 				animMario.SetBool ("Walking", true);
 				rbMario.velocity = new Vector2 (1.5f, 0);
 				posMario = collPos;

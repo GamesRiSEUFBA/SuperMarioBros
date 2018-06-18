@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 114884485144583400}
   - component: {fileID: 82004432740330732}
   m_Layer: 0
-  m_Name: global_controller
-  m_TagString: GameController
+  m_Name: obj_GameController
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -151,9 +151,8 @@ MonoBehaviour:
   snd: 0
   lives: 3
   score: 0
+  current_course: 1
   current_world: 1
   coins: 0
-  fire_count: 0
-  death_counter: -1
-  mario_object: {fileID: 0}
-  pipe_course2: 0
+  damage_time_counter: -1
+  damage_time: 300
