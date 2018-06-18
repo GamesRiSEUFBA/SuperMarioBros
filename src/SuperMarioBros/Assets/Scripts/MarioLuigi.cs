@@ -47,7 +47,8 @@ public class MarioLuigi : MonoBehaviour {
 		gC = GameObject.Find("global_controller").GetComponent<scr_GameController>();
 		gC.mario_object = GameObject.Find("Player").GetComponent<MarioLuigi>();
 		gC.fire_count = 0;
-		gC.Start();
+		//gC.Start();
+		gC.mario_update_according_to_state();
 
 		if (gC.pipe_course2 == true)
 		{
