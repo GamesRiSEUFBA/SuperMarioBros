@@ -36,6 +36,8 @@ public class MarioLuigi : MonoBehaviour {
 
 	private scr_GameController gC;
 
+	private Collider m_ObjectCollider;
+
 	public void Start () {
 		//GameObject.DontDestroyOnLoad(this.gameObject);
 
@@ -299,6 +301,8 @@ public class MarioLuigi : MonoBehaviour {
 			box.size = new Vector2 (0, 0);
 			rb.AddForce (new Vector2 (0, 20), ForceMode2D.Impulse);
 			scr_GameController.play_sound(scr_GameController.Sound.PLAYERDIED);
+			m_ObjectCollider = GetComponent<Collider>();
+			m_ObjectCollider.isTrigger = true;
 		}
 	}
 
