@@ -121,7 +121,7 @@ public class KoopaTroopaGreen : MonoBehaviour
 				Physics2D.IgnoreCollision (coll.collider, coll.otherCollider);
 			}
 
-			else if (coll.gameObject.tag == "KoopaTroopaGreen")
+			else if (coll.gameObject.tag == "KoopaTroopa")
 			{
 				coll.gameObject.GetComponent<KoopaTroopaGreen> ().Fall ();
 				add_combo();
@@ -145,7 +145,23 @@ public class KoopaTroopaGreen : MonoBehaviour
 				}
 			}
 		}
-		else
+
+		else if (coll.gameObject.tag == "KoopaTroopaGreen" && coll.gameObject.GetComponent<KoopaTroopaGreen> ().current_state == KoopaState.SHELL_SLIDING)
+		{
+			coll.gameObject.GetComponent<KoopaTroopaGreen> ().Fall ();
+			coll.gameObject.GetComponent<KoopaTroopaGreen> (). add_combo();
+		}
+
+		else foreach (ContactPoint2D hitPos in coll.contacts)
+		{
+			if (hitPos.normal.x > 0)
+				velX = Mathf.Abs (velX);
+
+
+			if (hitPos.normal.x < 0)
+				velX = -Mathf.Abs (velX);				
+		}
+			/*
 			if (coll.gameObject.tag == "block1" || coll.gameObject.tag.Contains("pipe") || coll.gameObject.tag == "block2" || coll.gameObject.tag == "blocksurp" || coll.gameObject.tag == "goomba") {
 				if (rbPos.y < collPos.y + 0.5 && rbPos.y > collPos.y - 0.5) {
 					if (coll.gameObject.transform.position.x > transKoopaGreen.position.x) {
@@ -157,6 +173,7 @@ public class KoopaTroopaGreen : MonoBehaviour
 		} else if (coll.gameObject.tag != "floor" && coll.gameObject.tag != "player") {
 			Physics2D.IgnoreCollision (coll.collider, coll.otherCollider);
 		}
+		*/
 	}
 
 	public void add_combo()
