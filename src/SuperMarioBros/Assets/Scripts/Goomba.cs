@@ -55,10 +55,7 @@ public class Goomba : MonoBehaviour {
 			Destroy (this.gameObject);
 		}
 
-		Vector3 screenPoint = Camera.main.WorldToViewportPoint (rigidGoomba.position);
-		if (screenPoint.z > 0 && screenPoint.x > -0.5 && screenPoint.x < 1.5 && screenPoint.y > 0 && screenPoint.y < 1) {	
-			rigidGoomba.velocity = new Vector2 (velX, rigidGoomba.velocity.y);
-		}
+		rigidGoomba.velocity = new Vector2 (velX, rigidGoomba.velocity.y);
 	}
 
 	public void Fall() {

@@ -28,8 +28,6 @@ public class MarioLuigi : MonoBehaviour {
 	public bool leavingPipe = false;
 	public GameObject FireMario;
 
-	public GameObject toad;
-
 	public int colliders = 0;
 	public MarioLuigi mario_object;
 	private Vector2 oldCamPos;
@@ -341,7 +339,6 @@ public class MarioLuigi : MonoBehaviour {
 		if (coll.gameObject.tag == "axe") {
 			onAxe = true;
 			Destroy (coll.gameObject);
-			Instantiate (toad, new Vector3 (137, -5.78f, 0), rb.transform.rotation);
 		}
 
 		if (coll.gameObject.tag == "goomba") {

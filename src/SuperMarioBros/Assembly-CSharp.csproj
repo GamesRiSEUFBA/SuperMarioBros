@@ -72,17 +72,16 @@
      <Compile Include="Assets\Scripts\Platform.cs" />
      <Compile Include="Assets\Scripts\Platform2.cs" />
      <Compile Include="Assets\Scripts\scr_Bowser.cs" />
-     <Compile Include="Assets\Scripts\scr_end_course_1.cs" />
      <Compile Include="Assets\Scripts\scr_Fireball.cs" />
      <Compile Include="Assets\Scripts\scr_GameController.cs" />
      <Compile Include="Assets\Scripts\SurpriseBlock.cs" />
      <Compile Include="Assets\Scripts\Toad.cs" />
      <Compile Include="Assets\Scripts\ToadBag.cs" />
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>C:/Users/Victor/Documents/git/SuperMarioBros/src/SuperMarioBros/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/Victor/Documents/GitHub/SuperMarioBros/src/SuperMarioBros/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/Victor/Documents/git/SuperMarioBros/src/SuperMarioBros/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>C:/Users/Victor/Documents/GitHub/SuperMarioBros/src/SuperMarioBros/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
