@@ -11178,7 +11178,7 @@ MonoBehaviour:
   actualScene: 0
   outPosition: {x: 0, y: 0}
   outPosition2: {x: 0, y: 0}
-  my_dir: 0
+  my_dir: 1
 --- !u!1001 &882549146
 Prefab:
   m_ObjectHideFlags: 0
