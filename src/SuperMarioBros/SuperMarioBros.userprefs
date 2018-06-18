@@ -1,17 +1,19 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\HUD.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Plant.cs">
     <Files>
-      <File FileName="Assets\Scripts\MarioLuigi.cs" Line="305" Column="5" />
-      <File FileName="Assets\Scripts\scr_GameController.cs" Line="248" Column="25" />
+      <File FileName="Assets\Scripts\MarioLuigi.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\scr_GameController.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\FireUpgrade.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Goomba.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Goomba.cs" Line="58" Column="81" />
       <File FileName="Assets\Scripts\FireMario.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Pipe.cs" Line="50" Column="58" />
+      <File FileName="Assets\Scripts\Pipe.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\CameraScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PipeLeft.cs" Line="20" Column="1" />
-      <File FileName="Assets\Scripts\PipeNext.cs" Line="34" Column="54" />
-      <File FileName="Assets\Scripts\HUD.cs" Line="17" Column="36" />
+      <File FileName="Assets\Scripts\PipeLeft.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PipeNext.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\HUD.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\KoopaTroopaGreen.cs" Line="50" Column="117" />
+      <File FileName="Assets\Scripts\Plant.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -46,7 +46,11 @@ public class KoopaTroopaGreen : MonoBehaviour
 
 	void Update () 
 	{
-		rigidKoopaGreen.velocity = new Vector2 (velX, rigidKoopaGreen.velocity.y);
+		Vector3 screenPoint = Camera.main.WorldToViewportPoint (rigidKoopaGreen.position);
+		if (screenPoint.z > 0 && screenPoint.x > -0.2 && screenPoint.x < 1.3 && screenPoint.y > 0 && screenPoint.y < 1) {	
+			rigidKoopaGreen.velocity = new Vector2 (velX, rigidKoopaGreen.velocity.y);
+		}
+
 		if (current_state == KoopaState.SHELL_STANDBY)
 		{
 			time_counter++;
