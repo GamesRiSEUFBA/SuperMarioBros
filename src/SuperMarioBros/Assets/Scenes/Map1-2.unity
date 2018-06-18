@@ -10909,6 +10909,7 @@ MonoBehaviour:
   actualScene: 0
   outPosition: {x: 0, y: 0}
   outPosition2: {x: 0, y: 0}
+  my_dir: 1
 --- !u!1001 &882549146
 Prefab:
   m_ObjectHideFlags: 0
@@ -15817,7 +15818,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1072127849241966, guid: 8632d97d75f3bc2439f78ca49935d9ed, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8632d97d75f3bc2439f78ca49935d9ed, type: 2}
