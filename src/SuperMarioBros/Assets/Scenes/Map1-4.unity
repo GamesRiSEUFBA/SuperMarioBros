@@ -1166,6 +1166,10 @@ Prefab:
       propertyPath: left
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1297327504536624, guid: d58d64e209a668d42b452dba1b024422, type: 2}
+      propertyPath: m_TagString
+      value: DangerousFire
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d58d64e209a668d42b452dba1b024422, type: 2}
   m_IsPrefabParent: 0
@@ -1798,6 +1802,10 @@ Prefab:
         type: 2}
       propertyPath: left
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297327504536624, guid: d58d64e209a668d42b452dba1b024422, type: 2}
+      propertyPath: m_TagString
+      value: DangerousFire
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d58d64e209a668d42b452dba1b024422, type: 2}
@@ -3292,6 +3300,10 @@ Prefab:
     - target: {fileID: 4007244614474000, guid: d58d64e209a668d42b452dba1b024422, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297327504536624, guid: d58d64e209a668d42b452dba1b024422, type: 2}
+      propertyPath: m_TagString
+      value: DangerousFire
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d58d64e209a668d42b452dba1b024422, type: 2}
@@ -5362,6 +5374,10 @@ Prefab:
       propertyPath: left
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1297327504536624, guid: d58d64e209a668d42b452dba1b024422, type: 2}
+      propertyPath: m_TagString
+      value: DangerousFire
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d58d64e209a668d42b452dba1b024422, type: 2}
   m_IsPrefabParent: 0
@@ -7108,6 +7124,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 135
       objectReference: {fileID: 0}
+    - target: {fileID: 1297327504536624, guid: d58d64e209a668d42b452dba1b024422, type: 2}
+      propertyPath: m_TagString
+      value: DangerousFire
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d58d64e209a668d42b452dba1b024422, type: 2}
   m_IsPrefabParent: 0
@@ -8071,6 +8091,10 @@ Prefab:
         type: 2}
       propertyPath: left
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297327504536624, guid: d58d64e209a668d42b452dba1b024422, type: 2}
+      propertyPath: m_TagString
+      value: DangerousFire
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d58d64e209a668d42b452dba1b024422, type: 2}
