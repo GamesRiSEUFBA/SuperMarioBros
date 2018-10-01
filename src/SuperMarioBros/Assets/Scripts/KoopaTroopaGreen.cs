@@ -20,7 +20,7 @@ public class KoopaTroopaGreen : MonoBehaviour
 
 	private bool fall = false;
 
-	public float velX = 3;
+	private float velX = 3;
 	private float impulseY = 8;
 	private float impulseX = 4;
 
@@ -182,36 +182,40 @@ public class KoopaTroopaGreen : MonoBehaviour
 		switch(combo_counter)
 		{
 			case 1:
-				gC.score += 200;
+				gC.addScore(200);
 				break;
 
 			case 2:
-				gC.score += 400;
+				gC.addScore(400);
 				break;
 
 			case 3:
-				gC.score += 800;
+				gC.addScore(800);
 				break;
 
 			case 4:
-				gC.score += 1000;
+				gC.addScore(1000);
 				break;
 
 			case 5:
-				gC.score += 2000;
+				gC.addScore(2000);
 				break;
 
 			case 6:
-				gC.score += 4000;
+				gC.addScore(4000);
 				break;
 
 			case 7:
-				gC.score += 8000;
+				gC.addScore(8000);
 				break;
 
 			default:
 				gC.add_life();
 				break;
 		}
+	}
+
+	public void setVelX(float i) {
+		this.velX = i;
 	}
 }

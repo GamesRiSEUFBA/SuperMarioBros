@@ -8,6 +8,7 @@ public class GetCoin : MonoBehaviour {
 	private Animator anim;
 	private Vector2 initPos;
 	private scr_GameController gC;
+
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();

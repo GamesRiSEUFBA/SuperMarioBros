@@ -3,26 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FireMario : MonoBehaviour {
-private float velX = 11;
-private Rigidbody2D rigid_fire;
-private bool col_bottom = false;
-private scr_GameController gC;
-public MarioLuigi mario_object;
-	// Use this for initialization
+
+	private float velX = 11;
+	private Rigidbody2D rigid_fire;
+	private bool col_bottom = false;
+	private scr_GameController gC;
+	private MarioLuigi mario_object;
+
 	void Start () {
 		rigid_fire = GetComponent<Rigidbody2D>();
 		gC = GameObject.Find("global_controller").GetComponent<scr_GameController>();
 		mario_object = GameObject.Find("Player").GetComponent<MarioLuigi>();
 
-		if (mario_object.dir_right == false)
+		if (mario_object.isDirRight() == false)
 		{
 			velX = -velX;
 		}
 
 		rigid_fire.AddForce (new Vector2 (0, 2), ForceMode2D.Impulse);
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		if (col_bottom)
 		{
@@ -45,8 +45,8 @@ public MarioLuigi mario_object;
 		if (coll.gameObject.tag == "goomba" || coll.gameObject.tag == "KoopaTroopa")
 		{
 			gC.add_coin();
-			gC.score += 200;
-			gC.fire_count--;
+			gC.addScore(200);
+			gC.subFireCount (1);
 			Destroy (coll.gameObject);
 			Destroy (this.gameObject);
 		}
@@ -57,7 +57,7 @@ public MarioLuigi mario_object;
 
 			if (hitPos.normal.x != 0)
 			{
-				gC.fire_count--;
+				gC.subFireCount (1);
 				Destroy (this.gameObject);
 			}					
 		}

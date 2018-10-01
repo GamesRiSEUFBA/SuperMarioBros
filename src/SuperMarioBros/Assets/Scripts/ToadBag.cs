@@ -8,8 +8,8 @@ public class ToadBag : MonoBehaviour {
 	private Transform trans;
 	private bool isLock = false;
 
-	public GameObject toadPrefab;
-	public Vector3 pos;
+	private GameObject toadPrefab;
+	private Vector3 pos;
 
 	void Start () {
 		anim = GetComponent<Animator> ();

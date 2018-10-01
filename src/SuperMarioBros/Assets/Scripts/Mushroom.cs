@@ -10,7 +10,7 @@ public class Mushroom : MonoBehaviour {
 	private float velX = 0, velY = 1;
 	private bool arising = false;
 	private scr_GameController gC;
-	// Use this for initialization
+
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 
@@ -20,7 +20,6 @@ public class Mushroom : MonoBehaviour {
 		scr_GameController.play_sound(scr_GameController.Sound.SPROUT);
 	}
 
-	// Update is called once per frame
 	void Update () {
 		if (rb.position.y >= initPos + 1.05 && !arising) {
 			velX = 2.5f;

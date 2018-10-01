@@ -21,9 +21,9 @@ public class scr_Bowser : MonoBehaviour {
 	private int counter_fireball = 0;
 	private int counter_fireball_max = 200;
 	private scr_GameController gC;
-	public GameObject Fireball;
+	private GameObject Fireball;
 
-	public int hp = 8;
+	private int hp = 8;
 
 	// Use this for initialization
 	void Start () {
@@ -90,7 +90,7 @@ public class scr_Bowser : MonoBehaviour {
 				Debug.Log ("Bowser HP hit 0, it must die!");
 				Destroy (this.gameObject);
 			}
-			gC.fire_count--;
+			gC.subFireCount(1);
 			Destroy (coll.gameObject);
 		}
 	}

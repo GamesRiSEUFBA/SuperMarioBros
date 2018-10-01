@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class BrickBlock : MonoBehaviour {
 
-	public GameObject obj;
-	public GameObject particle;
-	public int qnt = 1;
-	public bool willBreak = true;
+	private GameObject obj;
+	private GameObject particle;
+	private int qnt = 1;
+	private bool willBreak = true;
 
 	private Transform trans;
 	private Rigidbody2D rb;

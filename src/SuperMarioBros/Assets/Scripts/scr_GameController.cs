@@ -33,37 +33,32 @@ public class scr_GameController : MonoBehaviour {
 	}
 
 
-	public MarioState mario_state = MarioState.SMALL;
+	private MarioState mario_state = MarioState.SMALL;
 
-	public Sound snd;
+	private Sound snd;
 
-	public int lives = 3;
-	public int score = 0;
-	public static int current_course = 1;
-	public int current_world = 1;
-	public int coins = 0;
-	public int fire_count = 0;
-	public int death_counter = -1;
+	private int lives = 3;
+	private int score = 0;
+	private static int current_course = 1;
+	private int current_world = 1;
+	private int coins = 0;
+	private int fire_count = 0;
+	private int death_counter = -1;
 
-	public static int damage_time_counter = -1;
-	public static int damage_time = 300;
-	public MarioLuigi mario_object;
+	private static int damage_time_counter = -1;
+	private static int damage_time = 300;
+	private MarioLuigi mario_object;
 	//public controller_object = FindObjectOfType<obj_GameController>();
 
-	public static AudioClip snd_stomp, snd_coin, snd_jump, snd_bowser_fireball, snd_1up, snd_powerup,
+	private static AudioClip snd_stomp, snd_coin, snd_jump, snd_bowser_fireball, snd_1up, snd_powerup,
 	snd_powerdown, snd_dead, snd_bump, snd_sprout, snd_brickshatter, snd_mario_fireball;
-	static AudioSource audio_src;
-
+	private static AudioSource audio_src;
 
 	//pipes
-	public bool pipe_course2 = false;
+	private bool pipe_course2 = false;
 
 	public int getLives() {
 		return lives;
-	}
-
-	public void setLives(int lives) {
-		lives = lives;
 	}
 
 	public void mario_switch_state(MarioState state_switching_to)
@@ -78,17 +73,17 @@ public class scr_GameController : MonoBehaviour {
 		{
 			case MarioState.BIG:
 			{
-				mario_object.anim.SetInteger ("MarioSize", 1);
-				mario_object.box.size = new Vector2 (0.14f, 0.3f);
-				mario_object.box.offset = new Vector2 (0, 0.15f);
+				mario_object.getAnim().SetInteger ("MarioSize", 1);
+				mario_object.getBox().size = new Vector2 (0.14f, 0.3f);
+				mario_object.getBox().offset = new Vector2 (0, 0.15f);
 			}
 			break;
 
 			case MarioState.FIRE:
 			{
-				mario_object.anim.SetInteger ("MarioSize", 1);
-				mario_object.box.size = new Vector2 (0.14f, 0.3f);
-				mario_object.box.offset = new Vector2 (0, 0.15f);
+				mario_object.getAnim().SetInteger ("MarioSize", 1);
+				mario_object.getBox().size = new Vector2 (0.14f, 0.3f);
+				mario_object.getBox().offset = new Vector2 (0, 0.15f);
 			}
 			break;
 		}
@@ -114,7 +109,7 @@ public class scr_GameController : MonoBehaviour {
 				case MarioState.BIG:
 				{
 					mario_switch_state(MarioState.SMALL);
-					mario_object.anim.SetInteger ("MarioSize", 0);
+					mario_object.getAnim().SetInteger ("MarioSize", 0);
 					Debug.Log ("Mario became smaller, and invulnerable for some time!");
 					damage_time_counter = damage_time;
 					play_sound(Sound.POWERDOWN);
@@ -124,7 +119,7 @@ public class scr_GameController : MonoBehaviour {
 				case MarioState.FIRE:
 				{
 					mario_switch_state(MarioState.BIG);
-					mario_object.anim.SetInteger ("MarioSize", 1);
+					mario_object.getAnim().SetInteger ("MarioSize", 1);
 					Debug.Log ("Fire Mario became Big Mario!");
 					damage_time_counter = damage_time;
 					play_sound(Sound.POWERDOWN);
@@ -236,12 +231,12 @@ public class scr_GameController : MonoBehaviour {
 	void Update () {
 		if (damage_time_counter > 0)
 		{
-			mario_object.sprite.color = new Color(1f,1f,1f,.65f);
+			mario_object.getSprite().color = new Color(1f,1f,1f,.65f);
 			damage_time_counter--;
 			if (damage_time_counter <= 0)
 			{
 				damage_time_counter = -1;
-				mario_object.sprite.color = new Color(1f,1f,1f,1f);
+				mario_object.getSprite().color = new Color(1f,1f,1f,1f);
 			}
 		}
 
@@ -269,7 +264,7 @@ public class scr_GameController : MonoBehaviour {
 	{
 		death_counter = -1;
 		damage_time_counter = -1;
-		mario_object.dead = false;
+		mario_object.setDead(false);
 		mario_state = MarioState.SMALL;
 		lives--;
 		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
@@ -299,5 +294,58 @@ public class scr_GameController : MonoBehaviour {
 			lives++;
 		}
 		play_sound(Sound.ONEUP);
+	}
+
+	public void addScore(int x) {
+		this.score += x;
+	}
+
+	public void subFireCount(int x) {
+		this.fire_count -= x;
+	}
+
+	public void setFireCount(int x) {
+		this.fire_count = x;
+	}
+
+	public int getFireCount() {
+		return this.fire_count;
+	}
+
+	public int getScore() {
+		return this.score;
+	}
+
+	public int getCoins() {
+		return this.coins;
+	}
+
+	public MarioLuigi getMarioObject() {
+		return this.mario_object;
+	}
+
+	public void setMarioObject(MarioLuigi x) {
+		this.mario_object = x;
+	}
+
+
+	public bool getPipeCourse() {
+		return this.pipe_course2;
+	}
+
+	public void setPipeCourse(bool x) {
+		this.pipe_course2 = x;
+	}
+
+	public MarioState getMarioState() {
+		return this.mario_state;
+	}
+
+	public void setDeathCounter(int x) {
+		this.death_counter = x;
+	}
+
+	public void setLives(int x) {
+		this.lives = x;
 	}
 }

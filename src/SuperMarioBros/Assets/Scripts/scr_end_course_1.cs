@@ -4,16 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class scr_end_course_1 : MonoBehaviour {
-	public BoxCollider2D box;
 
-	// Use this for initialization
+	private BoxCollider2D box;
+
 	void Start () {
 		box = GetComponent<BoxCollider2D> ();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
 	void OnTriggerStay2D(Collider2D coll)

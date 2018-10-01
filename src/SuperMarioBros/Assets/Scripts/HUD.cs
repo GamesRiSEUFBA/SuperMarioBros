@@ -19,8 +19,8 @@ public class HUD : MonoBehaviour {
 	}
 
 	void Update () {
-		txtScore.text = gC.score + "";
-		txtLife.text = gC.lives + "";
-		txtCoin.text = gC.coins + "";
+		txtScore.text = gC.getScore() + "";
+		txtLife.text = gC.getLives() + "";
+		txtCoin.text = gC.getCoins() + "";
 	}
 }

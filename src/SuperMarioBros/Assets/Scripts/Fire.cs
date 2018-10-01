@@ -6,7 +6,7 @@ public class Fire : MonoBehaviour {
 
 	private Transform rb;
 
-	public bool left = true;
+	private bool left = true;
 
 	void Start () {
 		rb = GetComponent<Transform> ();	

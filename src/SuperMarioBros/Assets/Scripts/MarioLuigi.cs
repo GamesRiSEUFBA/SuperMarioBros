@@ -5,33 +5,33 @@ using UnityEngine.SceneManagement;
 
 public class MarioLuigi : MonoBehaviour {
 
-	public Rigidbody2D rb;
-	public BoxCollider2D box;
-	public Animator anim;
-	public SpriteRenderer sprite;
+	private Rigidbody2D rb;
+	private BoxCollider2D box;
+	private Animator anim;
+	private SpriteRenderer sprite;
 	private bool rightKeyPressed = false, leftKeyPressed = false, jumpPressed = false, firePressed = false, turnTime = false, onFloor = false, onAxe = false, onPipe = false, onPlatform = false;
-	public bool dead = false;
+	private bool dead = false;
 	private float maxVel = 6;
 	private float spd = 0;
 	private float spd_dir = 0;
 	private bool col_dir = false;
 	private float spd_max = 0.1f;
 	private float accel = 0.01f;
-	public bool dir_right = true;
+	private bool dir_right = true;
 	private bool col_right = false;
 	private bool col_left = false;
 	private bool col_up = false;
 	private bool col_bottom = false;
 	private int combo_counter = 0;
 	private int star_combo_counter = 0;
-	public Vector2 outPosition2;
-	public bool leavingPipe = false;
-	public GameObject FireMario;
+	private Vector2 outPosition2;
+	private bool leavingPipe = false;
+	private GameObject FireMario;
 
-	public GameObject toad;
+	private GameObject toad;
 
-	public int colliders = 0;
-	public MarioLuigi mario_object;
+	private int colliders = 0;
+	private MarioLuigi mario_object;
 	private Vector2 oldCamPos;
 
 	private scr_GameController gC;
@@ -39,25 +39,23 @@ public class MarioLuigi : MonoBehaviour {
 	private Collider m_ObjectCollider;
 
 	public void Start () {
-		//GameObject.DontDestroyOnLoad(this.gameObject);
-
 		rb = GetComponent<Rigidbody2D> ();
 		box = GetComponent<BoxCollider2D> ();
 		anim = GetComponent<Animator> ();
 		sprite = GetComponent<SpriteRenderer> ();
 
 		gC = GameObject.Find("global_controller").GetComponent<scr_GameController>();
-		gC.mario_object = GameObject.Find("Player").GetComponent<MarioLuigi>();
-		gC.fire_count = 0;
+		gC.setMarioObject(GameObject.Find("Player").GetComponent<MarioLuigi>());
+		gC.setFireCount(0);
 		//gC.Start();
 		gC.mario_update_according_to_state();
 
-		if (gC.pipe_course2 == true)
+		if (gC.getPipeCourse() == true)
 		{
 			transform.position = new Vector2(98.88f, -4.1f);//-2.88f);
 			leavingPipe = true;
 			anim.SetBool ("Walking", false);
-			gC.pipe_course2 = false;
+			gC.setPipeCourse(false);
 			outPosition2 = new Vector2(98.88f, -2.88f);//-2.88f)
 			scr_GameController.play_sound(scr_GameController.Sound.POWERDOWN);
 		}
@@ -111,9 +109,9 @@ public class MarioLuigi : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.X))
 		{
 			//Fireball code goes here
-			if (gC.fire_count < 2 && gC.mario_state == scr_GameController.MarioState.FIRE)
+			if (gC.getFireCount() < 2 && gC.getMarioState() == scr_GameController.MarioState.FIRE)
 			{
-				gC.fire_count++;
+				gC.setFireCount(gC.getFireCount() + 1);
 				scr_GameController.play_sound(scr_GameController.Sound.FIREBALL);
 				Instantiate(FireMario, transform.position, transform.rotation);
 				Debug.Log ("Mario threw a fireball!");
@@ -317,15 +315,15 @@ public class MarioLuigi : MonoBehaviour {
 			dead = true;
 			print ("Restart Game");
 
-			if (gC.lives <= 0 && rb.transform.position.y <= -8.3f)
+			if (gC.getLives() <= 0 && rb.transform.position.y <= -8.3f)
 			{
 				Debug.Log ("Game Over!");
 				gC.game_over();
 			}
-			else if (gC.lives > 0 && rb.transform.position.y <= -8.3f)
+			else if (gC.getLives() > 0 && rb.transform.position.y <= -8.3f)
 			{
 				//gC.restart_course();
-				gC.death_counter = 150;
+				gC.setDeathCounter(150);
 				Debug.Log ("Course must restart!");
 			}
 		}
@@ -386,11 +384,11 @@ public class MarioLuigi : MonoBehaviour {
 				{
 					if (dir_right == true)
 					{
-						other_koopa.velX = 9;
+						other_koopa.setVelX(9);
 					}
 					else
 					{
-						other_koopa.velX = -9;
+						other_koopa.setVelX(-9);
 					}
 					other_koopa.switch_state (KoopaTroopaGreen.KoopaState.SHELL_SLIDING);
 				}
@@ -405,11 +403,11 @@ public class MarioLuigi : MonoBehaviour {
 				{
 					if (dir_right == true)
 					{
-						other_koopa.velX = 9;
+						other_koopa.setVelX(9);
 					}
 					else
 					{
-						other_koopa.velX = -9;
+						other_koopa.setVelX(-9);
 					}
 					other_koopa.switch_state (KoopaTroopaGreen.KoopaState.SHELL_SLIDING);
 				}
@@ -438,7 +436,7 @@ public class MarioLuigi : MonoBehaviour {
 			scr_GameController.play_sound(scr_GameController.Sound.POWERUP);
 			Destroy (coll.gameObject);
 
-			if (gC.mario_state == scr_GameController.MarioState.SMALL)
+			if (gC.getMarioState() == scr_GameController.MarioState.SMALL)
 			{
 				anim.SetInteger ("MarioSize", 1);
 				box.size = new Vector2 (0.14f, 0.3f);
@@ -595,36 +593,68 @@ public class MarioLuigi : MonoBehaviour {
 		switch(combo_counter)
 		{
 			case 1:
-				gC.score += 200;
+				gC.addScore(200);
 				break;
 
 			case 2:
-				gC.score += 400;
+				gC.addScore(400);
 				break;
 
 			case 3:
-				gC.score += 800;
+				gC.addScore(800);
 				break;
 
 			case 4:
-				gC.score += 1000;
+				gC.addScore(1000);
 				break;
 
 			case 5:
-				gC.score += 2000;
+				gC.addScore(2000);
 				break;
 
 			case 6:
-				gC.score += 4000;
+				gC.addScore(4000);
 				break;
 
 			case 7:
-				gC.score += 8000;
+				gC.addScore(8000);
 				break;
 
 			default:
-				gC.lives++;
+				gC.setLives(gC.getLives() + 1);
 				break;
 		}
+	}
+
+	public bool isDead() {
+		return this.dead;
+	}
+
+	public void setDead(bool x) {
+		this.dead = x;
+	}
+
+	public bool isDirRight() {
+		return this.dir_right;
+	}
+
+	public void setLeavingPipe(bool x) {
+		this.leavingPipe = x;
+	}
+
+	public void setOutPosition2(Vector2 x) {
+		this.outPosition2 = x;
+	}
+
+	public Animator getAnim() {
+		return this.anim;
+	}
+
+	public BoxCollider2D getBox() {
+		return this.box;
+	}
+
+	public SpriteRenderer getSprite() {
+		return this.sprite;
 	}
 }

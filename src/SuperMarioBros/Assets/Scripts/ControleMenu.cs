@@ -4,8 +4,10 @@ using UnityEngine;
 using System.Collections;
 
 public class ControleMenu : MonoBehaviour {
-public int controller_count = 0;	
-public GameObject GameController;
+
+	private int controller_count = 0;	
+	private GameObject GameController;
+
 	void OnGUI(){
 		if(Input.GetKeyDown(KeyCode.Space)){
 			if (controller_count == 0)

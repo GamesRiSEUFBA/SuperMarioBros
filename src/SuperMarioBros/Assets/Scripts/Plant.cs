@@ -9,8 +9,8 @@ public class Plant : MonoBehaviour {
 	private Vector2 initPos;
 	private Rigidbody2D pRigid;
 
-	public float vel;
-	public int countMax;
+	private float vel;
+	private int countMax;
 
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();	

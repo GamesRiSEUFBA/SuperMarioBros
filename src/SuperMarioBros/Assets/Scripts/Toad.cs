@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Toad : MonoBehaviour {
 
-	public bool onFloor = false;
+	private bool onFloor = false;
 	private Rigidbody2D rbToad;
 	private Animator animToad;
 	private int counter = 0;

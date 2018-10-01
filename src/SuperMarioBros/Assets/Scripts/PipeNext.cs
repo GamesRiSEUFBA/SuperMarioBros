@@ -12,10 +12,10 @@ public class PipeNext : MonoBehaviour {
 
 	private bool onPipeLeft = false;
 
-	public int nextScene;
-	public int actualScene;
-	public Vector2 outPosition;
-	public Vector2 outPosition2;
+	private int nextScene;
+	private int actualScene;
+	private Vector2 outPosition;
+	private Vector2 outPosition2;
 
 	private Collider2D cPipe;
 	private Collider2D cMario;
@@ -35,8 +35,8 @@ public class PipeNext : MonoBehaviour {
 
 				rbMario.transform.position = outPosition;
 
-				GameObject.Find ("Player").GetComponent<MarioLuigi> ().outPosition2 = outPosition2;
-				GameObject.Find ("Player").GetComponent<MarioLuigi> ().leavingPipe = true;
+				GameObject.Find ("Player").GetComponent<MarioLuigi> ().setOutPosition2(outPosition2);
+				GameObject.Find ("Player").GetComponent<MarioLuigi> ().setLeavingPipe(true);
 				onPipeLeft = false;
 				animMario.SetBool ("Walking", false);
 			}

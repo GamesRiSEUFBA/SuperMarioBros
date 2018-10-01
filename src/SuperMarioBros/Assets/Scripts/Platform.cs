@@ -6,10 +6,10 @@ public class Platform : MonoBehaviour {
 
 	private Rigidbody2D rb;
 	private int velX = 0, velY = 0;
-	public Vector2 pos;
+	private Vector2 pos;
 
-	public float distX;
-	public float distY;
+	private float distX;
+	private float distY;
 
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();

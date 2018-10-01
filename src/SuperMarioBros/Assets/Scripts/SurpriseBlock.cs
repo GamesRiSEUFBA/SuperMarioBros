@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SurpriseBlock : MonoBehaviour {
 
-	public GameObject obj;
-	public int qnt = 1;
-	public bool invisible = false;
+	private GameObject obj;
+	private int qnt = 1;
+	private bool invisible = false;
 
 	private Transform trans;
 	private Rigidbody2D rb;
@@ -16,6 +16,7 @@ public class SurpriseBlock : MonoBehaviour {
 	private int count = 0;
 	private bool locked = false;
 	private scr_GameController gC;
+
 	void Start () {
 		trans = GetComponent<Transform> ();
 		rb = GetComponent<Rigidbody2D> ();

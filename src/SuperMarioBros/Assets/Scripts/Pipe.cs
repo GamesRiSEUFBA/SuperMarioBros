@@ -15,15 +15,15 @@ public class Pipe : MonoBehaviour {
 	private bool onPipeDown = false;
 	private bool onPipeLeft = false;
 
-	public int nextScene;
-	public int actualScene;
-	public Vector2 outPosition;
-	public Vector2 outPosition2;
+	private int nextScene;
+	private int actualScene;
+	private Vector2 outPosition;
+	private Vector2 outPosition2;
 
 	private Collider2D cPipe;
 	private Collider2D cMario;
 
-	public int my_dir = 0;
+	private int my_dir = 0;
 
 	private scr_GameController gC;
 
@@ -60,7 +60,7 @@ public class Pipe : MonoBehaviour {
 				switch(buildIndex)
 				{
 					case 3:
-						gC.pipe_course2 = true;
+						gC.setPipeCourse(true);
 						SceneManager.LoadScene (2, LoadSceneMode.Single);
 						break;
 
