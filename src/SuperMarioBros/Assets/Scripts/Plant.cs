@@ -17,11 +17,19 @@ public class Plant : MonoBehaviour {
 		initPos = rb.transform.position;
 		rb.velocity = new Vector2 (0, 2);
 
-		pRigid = GameObject.Find("Player").GetComponent<Rigidbody2D>();
-	}
+        //pRigid = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+        pRigid = scr_GameController.instance.getMarioRigidBody();
+
+    }
 
 	void Update () {
-		if (rb.transform.position.y >= initPos.y + 1.9 && rb.velocity.y > 0) {
+        if (!pRigid){
+            pRigid = scr_GameController.instance.getMarioRigidBody();
+            if (!pRigid)
+			return;
+        }
+
+        if (rb.transform.position.y >= initPos.y + 1.9 && rb.velocity.y > 0) {
 			rb.velocity = new Vector2 (0, 0);
 			count = -countMax;
 		} else if (rb.transform.position.y <= initPos.y && rb.velocity.y < 0) {
@@ -46,15 +54,18 @@ public class Plant : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter2D(Collision2D coll) {
-		if (coll.gameObject.tag != "player" || coll.gameObject.tag.Contains("pipe")) {
-			Physics2D.IgnoreCollision (coll.collider, coll.otherCollider);
-		}
-	}
+    void IgnoreCollision(Collision2D coll){
+        if (coll.gameObject.tag != "player" || coll.gameObject.tag.Contains("pipe")){
+            Physics2D.IgnoreCollision(coll.collider, coll.otherCollider);
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D coll) {
+        IgnoreCollision(coll);
+
+    }
 
 	void OnCollisionStay2D(Collision2D coll) {
-		if (coll.gameObject.tag != "player" || coll.gameObject.tag.Contains("pipe")) {
-			Physics2D.IgnoreCollision (coll.collider, coll.otherCollider);
-		}
-	}
+        IgnoreCollision(coll);
+    }
 }

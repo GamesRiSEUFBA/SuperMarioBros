@@ -4,8 +4,24 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class scr_GameController : MonoBehaviour {
+    #region Singleton
+    protected scr_GameController()
+    {
+    }
+    
+    public static scr_GameController instance = null;
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+        if (!instance)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
+    }
+    
+    #endregion
 
-	GameObject referenceObject;
+    GameObject referenceObject;
 
 	public enum MarioState
 	{
@@ -141,7 +157,6 @@ public class scr_GameController : MonoBehaviour {
 	}
 	// Use this for initialization
 	public void Start () {
-		DontDestroyOnLoad(gameObject);
 		Debug.Log ("I exist!");
 		mario_object = GameObject.Find("Player").GetComponent<MarioLuigi>();
 
@@ -324,7 +339,13 @@ public class scr_GameController : MonoBehaviour {
 		return this.mario_object;
 	}
 
-	public void setMarioObject(MarioLuigi x) {
+    public Rigidbody2D getMarioRigidBody()
+    {
+        if (!this.mario_object)
+            return null;
+        return this.mario_object.GetComponent<Rigidbody2D>();
+    }
+    public void setMarioObject(MarioLuigi x) {
 		this.mario_object = x;
 	}
 

@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(SpriteRenderer))]
+
 public class MarioLuigi : MonoBehaviour {
 
 	private Rigidbody2D rb;
@@ -34,18 +40,19 @@ public class MarioLuigi : MonoBehaviour {
 	private MarioLuigi mario_object;
 	private Vector2 oldCamPos;
 
-	private scr_GameController gC;
+    private scr_GameController gC { get { return scr_GameController.instance; } }
 
-	private Collider m_ObjectCollider;
+    private BoxCollider2D m_ObjectCollider;
 
 	public void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		box = GetComponent<BoxCollider2D> ();
 		anim = GetComponent<Animator> ();
 		sprite = GetComponent<SpriteRenderer> ();
+        
 
-		gC = GameObject.Find("global_controller").GetComponent<scr_GameController>();
-		gC.setMarioObject(GameObject.Find("Player").GetComponent<MarioLuigi>());
+        //gC = GameObject.Find("global_controller").GetComponent<scr_GameController>();
+        gC.setMarioObject(GameObject.Find("Player").GetComponent<MarioLuigi>());
 		gC.setFireCount(0);
 		//gC.Start();
 		gC.mario_update_according_to_state();
@@ -299,8 +306,9 @@ public class MarioLuigi : MonoBehaviour {
 			box.size = new Vector2 (0, 0);
 			rb.AddForce (new Vector2 (0, 20), ForceMode2D.Impulse);
 			scr_GameController.play_sound(scr_GameController.Sound.PLAYERDIED);
-			m_ObjectCollider = GetComponent<Collider>();
-			m_ObjectCollider.isTrigger = true;
+			m_ObjectCollider = GetComponent<BoxCollider2D>();
+            if (m_ObjectCollider) m_ObjectCollider.isTrigger = true;
+            else Debug.LogError("Player Collider equals NULL");
 		}
 	}
 

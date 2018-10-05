@@ -2,35 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SurpriseBlock : MonoBehaviour {
-
-	private GameObject obj;
-	private int qnt = 1;
+public class SurpriseBlock : Block {
+    
 	private bool invisible = false;
 
-	private Transform trans;
-	private Rigidbody2D rb;
-	private Animator anim;
 
-	private Vector2 initPos;
 	private int count = 0;
 	private bool locked = false;
-	private scr_GameController gC;
+
+    
 
 	void Start () {
-		trans = GetComponent<Transform> ();
-		rb = GetComponent<Rigidbody2D> ();
-		anim = GetComponent<Animator> ();
-		gC = GameObject.Find("global_controller").GetComponent<scr_GameController>();
-		initPos = trans.position;
+        GetReferences();
 
-		if (invisible) {
+		if (invisible)
 			anim.SetBool ("Invisible", true);
-		}
+		
 	}
 
 	void Open() {
-		Instantiate (obj, initPos, trans.localRotation);
+        if (obj == null)
+            return;
+		Instantiate (obj, initPos, transform.localRotation);
 		count++;
 		if (count == qnt) {
 			Lock();
@@ -43,10 +36,10 @@ public class SurpriseBlock : MonoBehaviour {
 	}
 
 	void Update () {
-		if (trans.position.y >= initPos.y + 0.5) {
+		if (transform.position.y >= initPos.y + 0.5) {
 			rb.velocity = new Vector2 (0, -6);
 		}
-		if (!locked && rb.velocity.y < 0 && trans.position.y <= initPos.y) {
+		if (!locked && rb.velocity.y < 0 && transform.position.y <= initPos.y) {
 			rb.velocity = new Vector2 (0, 0);
 			Open ();
 		}
@@ -54,7 +47,7 @@ public class SurpriseBlock : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		Vector2 collPos = coll.gameObject.transform.position;
-		Vector2 transPos = trans.position;
+		Vector2 transPos = transform.position;
 
 		if (!locked && coll.gameObject.tag == "player") {
 			if (transPos.y - 0.5 >= collPos.y) {
